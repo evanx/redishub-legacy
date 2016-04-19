@@ -9,7 +9,7 @@ UNSTABLE, INCOMPLETE
 
 ### Live demo
 
-Try: https://demo.ibhala.com/rquery
+Try: https://redishub.com/rquery
 
 However be sure to have a JSON Viewer extension installed in your browser.
 
@@ -18,8 +18,8 @@ It should report the available "routes" defined for the ExpressJS webserver:
 <img src="https://evanx.github.io/images/rquery/rquery-routes.png">
 
 where the following "help" is available:
-- https://demo.ibhala.com/rquery/routes - shows all the "routes"
-- https://demo.ibhala.com/rquery/help - renders this `README.md`
+- https://redishub.com/rquery/routes - shows all the "routes"
+- https://redishub.com/rquery/help - renders this `README.md`
 
 The `/keyspaces` endpoint performs a `smembers` of the set of all used keyspaces, and so your chosen keyspace should appear therein.
 
@@ -47,8 +47,8 @@ In the examples below, we set our "keyspace" as our username via `$USER.` (This 
 ##### Info
 
 ```shell
-curl -s demo.ibhala.com/rquery/info | tail -1
-curl -s demo.ibhala.com/rquery/time | python -mjson.tool
+curl -s redishub.com/rquery/info | tail -1
+curl -s redishub.com/rquery/time | python -mjson.tool
 ```
 where `time` returns:
 ```json
@@ -60,7 +60,7 @@ where `time` returns:
 
 We sometimes support variants:
 ```shell
-root@joy:~# curl -s https://ibhala.com/rquery/time/seconds; echo
+root@joy:~# curl -s https://redishub.com/rquery/time/seconds; echo
 "1460836467"
 ```
 where the `/time/seconds` endpoint returns the epoch seconds. The default is JSON, and hence the double-quotes i.e. to be a valid JSON "document."
@@ -69,16 +69,16 @@ Incidently, this VM is named after Bill Joy, to whom I would speechlessly say, "
 
 More practical for some use-cases, the `/time/seconds/plain` endpoint returns the epoch seconds in plain text:
 ```shell
-$ echo `curl -s https://ibhala.com/rquery/time/seconds/plain`
+$ echo `curl -s https://redishub.com/rquery/time/seconds/plain`
 1460910466
 
-$ date -d @`curl -s https://ibhala.com/rquery/time/seconds/plain`
+$ date -d @`curl -s https://redishub.com/rquery/time/seconds/plain`
 Sun Apr 17 18:27:51 SAST 2016
 ```
 
-Incidently the `http://ibhala.com/epoch` endpoint was announced to be "eternally" available. Actually this endpoint is proxied to `/rquery/time/seconds/plain.` An HTTP expiry header of 15 seconds is added:
+Incidently the `http://redishub.com/epoch` endpoint was announced to be "eternally" available. Actually this endpoint is proxied to `/rquery/time/seconds/plain.` An HTTP expiry header of 15 seconds is added:
 ```shell
-$ curl -I http://ibhala.com/epoch | grep '^Cache-Control'
+$ curl -I http://redishub.com/epoch | grep '^Cache-Control'
 Cache-Control: max-age=15
 ```
 As such, it's expected to be up to about 15 seconds later than the actual epoch time i.e. allowing for CDN caching.
@@ -86,10 +86,10 @@ As such, it's expected to be up to about 15 seconds later than the actual epoch 
 ##### Keys
 
 ```shell
-curl -s demo.ibhala.com/rquery/ks/$USER/set/mykey/myvalue | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/exists/mykey | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/get/mykey | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/ttl/mykey | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/set/mykey/myvalue | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/exists/mykey | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/get/mykey | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/ttl/mykey | python -mjson.tool
 ```
 where `ttl/mykey` returns the TTL decreasing from 180 seconds:
 ```json
@@ -99,17 +99,17 @@ where `ttl/mykey` returns the TTL decreasing from 180 seconds:
 ##### Sets
 
 ```shell
-curl -s demo.ibhala.com/rquery/ks/$USER/sadd/myset/item1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/sadd/myset/item2 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/sadd/myset/item3 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/sadd/myset/item4 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/sismember/myset/item1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/smembers/myset | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/srem/myset/item1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/scard/myset | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/smove/myset/myotherset/item4 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/smembers/myotherset | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/spop/myset | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/sadd/myset/item1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/sadd/myset/item2 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/sadd/myset/item3 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/sadd/myset/item4 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/sismember/myset/item1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/smembers/myset | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/srem/myset/item1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/scard/myset | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/smove/myset/myotherset/item4 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/smembers/myotherset | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/spop/myset | python -mjson.tool
 ```
 
 where `smembers/myset` returns:
@@ -124,12 +124,12 @@ where `smembers/myset` returns:
 ##### Sorted sets
 
 ```shell
-curl -s demo.ibhala.com/rquery/ks/$USER/zadd/mysortedset/10/value10 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/zadd/mysortedset/20/value20 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/zcard/mysortedset | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/zrange/mysortedset/0/-1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/zrem/mysortedset/value10 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/zrevrange/mysortedset/0/-1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/zadd/mysortedset/10/value10 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/zadd/mysortedset/20/value20 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/zcard/mysortedset | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/zrange/mysortedset/0/-1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/zrem/mysortedset/value10 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/zrevrange/mysortedset/0/-1 | python -mjson.tool
 ```
 
 where `zrange/mysortedset` returns:
@@ -144,16 +144,16 @@ where `zrange/mysortedset` returns:
 ##### Hashes
 
 ```shell
-curl -s demo.ibhala.com/rquery/ks/$USER/hset/myhashes/myfield1/myfield1value | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hget/myhashes/myfield1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hset/myhashes/myfield2/myfield2value | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hget/myhashes/myfield2 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hexists/myhashes/myfield1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hexists/myhashes/myfield3 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hlen/myhashes | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hkeys/myhashes | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hgetall/myhashes | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/hdel/myhashes/myfield2 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hset/myhashes/myfield1/myfield1value | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hget/myhashes/myfield1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hset/myhashes/myfield2/myfield2value | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hget/myhashes/myfield2 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hexists/myhashes/myfield1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hexists/myhashes/myfield3 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hlen/myhashes | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hkeys/myhashes | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hgetall/myhashes | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/hdel/myhashes/myfield2 | python -mjson.tool
 ```
 
 where `hkeys/myhashes` returns:
@@ -175,19 +175,19 @@ and `hgetall/myhashes` returns:
 ##### Lists
 
 ```shell
-curl -s demo.ibhala.com/rquery/ks/$USER/lpush/mylist/item1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/lpush/mylist/item2 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/lpush/mylist/item3 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/lpush/mylist/item4 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/lrange/mylist/0/-1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/lrem/mylist/-1/item4 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/lindex/mylist/0 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/lrange/mylist/0/-1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/lpop/mylist | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/brpop/mylist/1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/brpoplpush/mylist/mypoppedlist/1 | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/llen/mylist | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/ltrim/mylist/0/2 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lpush/mylist/item1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lpush/mylist/item2 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lpush/mylist/item3 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lpush/mylist/item4 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lrange/mylist/0/-1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lrem/mylist/-1/item4 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lindex/mylist/0 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lrange/mylist/0/-1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/lpop/mylist | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/brpop/mylist/1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/brpoplpush/mylist/mypoppedlist/1 | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/llen/mylist | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/ltrim/mylist/0/2 | python -mjson.tool
 ```
 
 where `lrange/mylist/0/-1` returns:
@@ -203,8 +203,8 @@ where `lrange/mylist/0/-1` returns:
 
 We can check the keys and their TTL in the specified `keyspace` as follows:
 ```shell
-curl -s demo.ibhala.com/rquery/ks/$USER/keys | python -mjson.tool
-curl -s demo.ibhala.com/rquery/ks/$USER/ttl | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/keys | python -mjson.tool
+curl -s redishub.com/rquery/ks/$USER/ttl | python -mjson.tool
 ```
 
 where `keys` returns:
@@ -231,7 +231,7 @@ which shows my keys' TTLs decreasing from 180 seconds.
 
 We can check the keys and their TTL in the specified `keyspace` as follows:
 ```shell
-curl -s demo.ibhala.com/rquery/keyspaces | python -mjson.tool
+curl -s redishub.com/rquery/keyspaces | python -mjson.tool
 ```
 
 where `keyspaces` returns:
