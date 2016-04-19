@@ -1,5 +1,5 @@
 
-## rquery
+## redishub.com
 
 - HTTP API for Redis queries
 
