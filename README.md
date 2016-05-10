@@ -24,9 +24,9 @@ Future user stories:
 UNSTABLE, INCOMPLETE
 
 
-### Implementation
+### Related
 
-A deployment of https://github.com/evanx/rquery
+See: https://github.com/evanx/rquery
 
 Notable features (June 2016):
 - Register-expire for adhoc ephemeral keyspaces
