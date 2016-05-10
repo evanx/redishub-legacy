@@ -16,7 +16,7 @@ Future user stories:
 - Use disk-based keyspaces for archival.
 - Manage auto-archival of keys.
 - Enable a durable transaction log facilicity with playback for recovery
-- Deploy special "workers" to `cloud.redishub.com`
+- Deploy special "workers" to `apps.redishub.com` to build serverless backends
 
 
 ### Status
