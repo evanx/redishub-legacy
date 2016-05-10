@@ -9,12 +9,13 @@ User stories:
 - Use a hosted Redis "keyspace" for specific low-volume purposes.
 
 Future user stories:
+- Manage the account admins and users
+- Manage access to keyspaces
+- Group/classify keyspaces for access control purposes.
 - Web admin console to inspect and manage keys.
-- Keyspaces grouped for access control purposes.
 - Disk-based keyspaces for archival.
-- Support auto-archival of keys.
-- Support durable transaction log recording, with replay for recovery
-- Deploy "bots" that operate on keyspaces 
+- Manage auto-archival of keys.
+- Provide a durable transaction log facilicity with playback for recovery
 
 
 ### Status
@@ -27,10 +28,10 @@ UNSTABLE, INCOMPLETE
 A deployment of https://github.com/evanx/rquery
 
 Notable features (June 2016):
-- Generate tokens for Google Authenticator 
 - Register-expire for adhoc ephemeral keyspaces
 - Identity verification via Telegram.org chat bot @redishub_bot`
 - Access secured via client-authenticated SSL (secure.redishub.com)
+- Generate tokens for Google Authenticator 
 
 TODO (June 2016):
 - refactor (separate auth modules for OTP, Telegram)
