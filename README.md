@@ -11,10 +11,10 @@ User stories:
 Future user stories:
 - Manage the account admins and users
 - Manage access to keyspaces
-- Group/classify keyspaces for access control purposes.
-- Web admin console to inspect and manage keys.
-- Use disk-based keyspaces for archival.
-- Manage auto-archival of keys.
+- Group/classify keyspaces for access control purposes
+- Web admin console to inspect and manage keys
+- Use disk-based keyspaces for archival
+- Manage auto-archival of keys
 - Enable a durable transaction log facilicity with playback for recovery
 - Deploy special "workers" to `apps.redishub.com` to build serverless backends
 
