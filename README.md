@@ -34,12 +34,6 @@ Notable features (June 2016):
 - Access secured via client-authenticated SSL (secure.redishub.com)
 - Generate tokens for Google Authenticator 
 
-TODO (June 2016):
-- refactor (separate auth modules for OTP, Telegram)
-- grant and revoke account access (via Bot)
-- keyspace role-based access control
-
-
 ### Documentation
 
 See: https://github.com/evanx/rquery
