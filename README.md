@@ -13,9 +13,10 @@ Future user stories:
 - Manage access to keyspaces
 - Group/classify keyspaces for access control purposes.
 - Web admin console to inspect and manage keys.
-- Disk-based keyspaces for archival.
+- Use disk-based keyspaces for archival.
 - Manage auto-archival of keys.
-- Provide a durable transaction log facilicity with playback for recovery
+- Enable a durable transaction log facilicity with playback for recovery
+- Deploy special "workers" to `cloud.redishub.com`
 
 
 ### Status
@@ -38,9 +39,6 @@ TODO (June 2016):
 - grant and revoke account access (via Bot)
 - keyspace role-based access control
 
-Future plans:
-- Enable "lambas" to be deployed to `apps.redishub.com`
--  lambda keyspace access permissions
 
 ### Documentation
 
