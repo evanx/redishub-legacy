@@ -3,7 +3,7 @@
 
 Try: https://demo.redishub.com
 
-Note that (insecure) HTTP access to all RedisHub domains is redirected to this info page.
+Note that (insecure) HTTP access to all RedisHub domains, and/or pathless URLs, are redirected to this info page.
 
 ### Goals 
 
