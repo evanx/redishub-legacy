@@ -20,8 +20,14 @@ Future user stories:
 - Use disk-based keyspaces for archival
 - Manage auto-archival of keys
 - Enable a durable transaction log facilicity with playback for recovery
-- Deploy special "workers" to `apps.redishub.com` to build serverless backends
+- Deploy special "workers" to `apps.redishub.com` to build Redis-driven serverless backends
 
+Redishub workers use keyspaces for:
+- pulling configuration
+- pushing logging errors and other info
+- pushing metrics e.g. response time histograms
+- messaging via Redis lists
+- storage via Redis keys e.g. for storing values, lists, sets, sorted sets and hashes
 
 ### Status
 
