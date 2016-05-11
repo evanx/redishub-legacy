@@ -21,13 +21,18 @@ Future user stories:
 - Manage auto-archival of keys
 - Enable a durable transaction log facilicity with playback for recovery
 - Deploy special "workers" to `apps.redishub.com` to build Redis-driven serverless backends
+- "React workers" generate web pages from React templates, using data stored in Redishub 
 
-Redishub workers use keyspaces for:
-- pulling configuration
-- pushing logging errors and other info
+Redishub workers are special ES2016 scripts that use keyspaces for:
+- pulling their configuration
+- pushing logging messages e.g. info and errors
 - pushing metrics e.g. response time histograms
 - messaging via Redis lists
-- storage via Redis keys e.g. for storing values, lists, sets, sorted sets and hashes
+- storing application state e.g. to support auto-scaling
+- data storage via Redis keys e.g. for storing values, lists, sets, sorted sets and hashes
+
+Related specification: https://github.com/evanx/component-validator
+
 
 ### Status
 
