@@ -10,7 +10,8 @@ Note that (insecure) HTTP access to all RedisHub domains, and/or pathless URLs, 
 Build a site "redishub.com" with a foundational HTTP service for accessing and mutating keys in a hosted Redis "keyspace." 
 
 User stories:
-- Use a hosted Redis "keyspace" for specific low-volume purposes.
+- Use a free hosted Redis "keyspace" for specific low-volume purposes
+- Deploy their own private "redishub" instance using the `rquery` opensource implementation
 
 Future user stories:
 - encrypted keys (using client cert)
@@ -21,16 +22,16 @@ Future user stories:
 - Use disk-based keyspaces for archival
 - Manage auto-archival of keys
 - Enable a durable transaction log facilicity with playback for recovery
-- Deploy Redishub "components" to `apps.redishub.com` to build Redis-driven serverless backends
-- React components generate web pages from React templates, using data stored in Redishub 
+- Deploy Redishub "bots" to `bots.redishub.com` to build Redis-driven serverless backends
+- Page bots generate web pages from React templates, populated with data from Redishub 
 
-Redishub components are special ES2016 scripts that use keyspaces for:
+Redishub bots are special ES2016 scripts that use keyspaces for:
 - pulling their configuration
 - pushing logging messages e.g. info and errors
-- pushing metrics e.g. response time histograms
+- pushing metrics e.g. for response time histograms, user geo distribution, et al
 - messaging via Redis lists e.g. for microservice app architecture
-- storing application state e.g. to support stateless microservices with auto-scaling
-- persistent data storage via Redis keys e.g. values, lists, sets, sorted sets and hashes
+- storing application state e.g. to support stateless microservices for auto-scaling
+- persistent data storage via Redis keys e.g. values, lists, sets, sorted sets, hashes, geo et al
 
 Related specification: https://github.com/evanx/component-validator
 
