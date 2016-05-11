@@ -27,9 +27,9 @@ Redishub components are special ES2016 scripts that use keyspaces for:
 - pulling their configuration
 - pushing logging messages e.g. info and errors
 - pushing metrics e.g. response time histograms
-- messaging via Redis lists
-- storing application state e.g. to support auto-scaling
-- data storage via Redis keys e.g. for storing values, lists, sets, sorted sets and hashes
+- messaging via Redis lists e.g. for microservice app architecture
+- storing application state e.g. to support stateless microservices with auto-scaling
+- persistent data storage via Redis keys e.g. values, lists, sets, sorted sets and hashes
 
 Related specification: https://github.com/evanx/component-validator
 
