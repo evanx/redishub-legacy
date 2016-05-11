@@ -5,7 +5,7 @@ Try: https://demo.redishub.com
 
 Documentation: https://github.com/evanx/rquery
 
-Note that (insecure) HTTP access to all RedisHub domains, and/or pathless URLs, are redirected to this info page.
+Note that (insecure) HTTP access to all RedisHub domains, and some other URLs, are redirected to this info page.
 
 ### Goals 
 
