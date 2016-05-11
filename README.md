@@ -1,6 +1,10 @@
 
 ## redishub.com
 
+Try: https://demo.redishub.com
+
+Note that (insecure) HTTP access to all RedisHub domains is redirected to this info page.
+
 ### Goals 
 
 Build a site "redishub.com" with a foundational HTTP service for accessing and mutating keys in a hosted Redis "keyspace." 
