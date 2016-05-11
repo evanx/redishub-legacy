@@ -13,6 +13,7 @@ User stories:
 - Use a hosted Redis "keyspace" for specific low-volume purposes.
 
 Future user stories:
+- encrypted keys (using client cert)
 - Manage the account admins and users
 - Manage access to keyspaces
 - Group/classify keyspaces for access control purposes
