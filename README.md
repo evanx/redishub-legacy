@@ -20,10 +20,10 @@ Future user stories:
 - Use disk-based keyspaces for archival
 - Manage auto-archival of keys
 - Enable a durable transaction log facilicity with playback for recovery
-- Deploy special "workers" to `apps.redishub.com` to build Redis-driven serverless backends
-- "React workers" generate web pages from React templates, using data stored in Redishub 
+- Deploy Redishub "components" to `apps.redishub.com` to build Redis-driven serverless backends
+- React components generate web pages from React templates, using data stored in Redishub 
 
-Redishub workers are special ES2016 scripts that use keyspaces for:
+Redishub components are special ES2016 scripts that use keyspaces for:
 - pulling their configuration
 - pushing logging messages e.g. info and errors
 - pushing metrics e.g. response time histograms
