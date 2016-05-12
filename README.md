@@ -3,7 +3,7 @@
 
 Try: https://demo.redishub.com/register-expire
 
-Note that this endpoint returns JSON, so ensure JSON viewer extension installed in your browser, otherwise it's pretty unusable.
+Note that this endpoint returns JSON, so you'll want a JSON viewer extension installed in your browser, otherwise it's pretty unusable.
 
 Documentation: https://github.com/evanx/rquery
 
