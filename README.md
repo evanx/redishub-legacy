@@ -1,9 +1,9 @@
 
 ## redishub.com
 
-Try: https://demo.redishub.com/routes
+Try: https://demo.redishub.com/register-expire
 
-Hint: Try URI `/register-expire` to register a ephemeral keyspace.
+Note that this endpoint returns JSON, so ensure JSON viewer extension installed in your browser, otherwise it's pretty unusable.
 
 Documentation: https://github.com/evanx/rquery
 
