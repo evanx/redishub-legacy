@@ -3,6 +3,8 @@
 
 Try: https://demo.redishub.com/routes
 
+Hint: Try URI `/register-expire` to register a ephemeral keyspace.
+
 Documentation: https://github.com/evanx/rquery
 
 Note that (insecure) HTTP access to all RedisHub domains, and some other URLs, are redirected to this info page.
