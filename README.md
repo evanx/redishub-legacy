@@ -1,7 +1,7 @@
 
 ## redishub.com
 
-Try: https://demo.redishub.com
+Try: https://demo.redishub.com/routes
 
 Documentation: https://github.com/evanx/rquery
 
