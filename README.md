@@ -60,13 +60,13 @@ Related specification: https://github.com/evanx/component-validator
 <br>A.</b> Currently a multi-tenanted Redis instance. Maybe later a dedicated Redis instance, Redis Cluster and/or disk-based implementation such as https://ssdb.io.
 
 <b>Q. Why use a Redis database rather than SQL?
-<br>A.</b> The benefits of Redis for some use cases are well documentated elsewhere. Suffice it to say that Redis is perhaps the most popular NoSQL database. Personally I'm attracted to its speed, although some of that benefit is lost when it is accessed remoted over HTTP. Even so, it supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
+<br>A.</b> The benefits of Redis for some use cases are well documentated elsewhere. Suffice it to say that Redis is perhaps the most popular NoSQL database. It supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
 
 <b>Q. Why use a hosted Redis service rather than one's own?
-<br>A.</b> Actually Redishub doesn't offer hosted Redis instances per se (yet). It addresses some use cases where an online storage service is convenient, and where there is scope to improve the developer experience, and to perhaps build something that is worth using.
+<br>A.</b> Actually Redishub doesn't offer hosted Redis instances per se (yet). It addresses some use cases for an online storage/messaging service.
 
 <b>Q. What are Redishub bots?
-<br>A.</b> These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps. But I still have to realise this, not least in terms of identity, authorisation, configuration, deployment, logging, metrics and messaging. However, a key simplication is that Redis is used across the board for all these concerns. I'll probably build something quite minimal and then lose interest. Time will tell.
+<br>A.</b> These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps. The platform handles identity, authorisation, configuration, deployment, logging, metrics and messaging. However, a key simplication is that Redis is used across the board for all these concerns. Therefore the same UI tool for editing configuration, can be used for editing application data. Also tools to view data can be applied to multiple aspects of the platform.
 
 
 ### Status
