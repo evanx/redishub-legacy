@@ -55,7 +55,7 @@ Related specification: https://github.com/evanx/component-validator
 <br></b> My pet R&D project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
 
 <b>Who is evanx?</b>
-<br></b> I'm a professional Node, React and Redis web developer, based in Cape Town, working on content sites for a major news publisher. In my spare time, I work on my Github projects that invariably align with my professional interests. Previously, I've been a Java developer, PostgreSQL DBA and Linux engineer. That's why I still love `bash` so much ;)
+<br></b> I'm a professional Node, React and Redis web developer and full stack engineer based in Cape Town, working on content sites for a major news publisher. In my spare time, I work on my Github projects that invariably align with my professional interests. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. That's why I love bash shell so much ;)
 
 <b>What technology is behind a RedisHub keyspace?
 <br></b> Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster, dedicated Redis instance, dedicated Redis Cluster, or disk-based implementation such as http://ssdb.io.
