@@ -52,7 +52,7 @@ There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCa
 ##### What are Redishub bots?
 
 These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps.
-I'm choosing to define "bots" as server-side components which access one or more keyspaces. They must be stateless to enable auto-scaling. They will be written using a specific ES2016 framework, to simplify orchestration and management.
+I'm choosing to define "bots" as server-side components which access one or more keyspaces. They must be stateless to enable auto-scaling. They must be written using a specific ES2016 framework, to simplify orchestration and management, e.g. configuration, keyspace access, logging and metrics.
 
 ##### How will Redishub support its bots?
 
