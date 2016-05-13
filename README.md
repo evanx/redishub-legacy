@@ -62,13 +62,14 @@ Related specification: https://github.com/evanx/component-validator
 <b>Q. Why use a Redis database rather than SQL?
 <br>A.</b> Redis is the most popular NoSQL database. It supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
 
-<b>Q. Why use a hosted Redis service rather than one's own?
-<br>A.</b> Actually Redishub doesn't offer hosted Redis instances per se (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. I have no idea if it will be popular or not. Actually I want to see how useful it might be for me personally, and see how that can play out.
-
 <b>Q. But isn't Redis just for caching?
 <br>A.</b> Certainly Redis excels at caching and is widely used for this. Actually it is an in-memory "data structure server." It has many usecases, including fast shared persistent data storage and messaging.
 
-<b>Q. ?</b> 
+<b>Q. Why use a hosted Redis service rather than one's own?
+<br>A.</b> Actually Redishub doesn't offer hosted Redis instances per se (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. I have no idea if it will be popular or not. Actually I want to see how useful it might be for me personally.
+
+<b>Q. Why would a developer use an indie service which might well go the way of Parse?</b> 
+<br>A.</b> That is a very good question. Quite possibly no one will use it except myself, and possibly only for fun. That outcome is acceptable, since I'll be learning a great deal and boosting my professional skills and profile.
 
 <b>Q. What about ACID?
 <br>A.</b> Atomicity, consistency, isolation and durability is that offered by Redis or other back end engines. This a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the event a server crash, versus the heavy performance cost of a disk sync on every transaction. We wish to support highly durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. 
