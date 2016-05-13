@@ -72,7 +72,7 @@ Related specification: https://github.com/evanx/component-validator
 <br>A.</b> Actually Redishub doesn't offer hosted Redis instances (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. I have no idea if it will be popular or not. Actually I want to see how useful it might be for me personally.
 
 <b>Q. Will you ever offer a hosted Redis service?
-<br>A.</b> There are other PaaS vendors that offer hosted Redis at scale, e.g. ElastiCache. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas. However I'm more interested in supporting "bots." 
+<br>A.</b> There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas. However I'm more interested in supporting "bots." 
 
 <b>Q. What are Redishub bots?
 <br>A.</b> These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps. 
