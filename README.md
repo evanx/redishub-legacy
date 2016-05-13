@@ -57,7 +57,7 @@ Related specification: https://github.com/evanx/component-validator
 <br>A.</b> An online Redis database partition, accessed via HTTPS.
 
 <b>Q. What technology is behind a RedisHub keyspace?
-<br>A.</b> Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster, dedicated Redis instance, dedicated Redis Cluster, or disk-based implementation such as https://ssdb.io.
+<br>A.</b> Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster, dedicated Redis instance, dedicated Redis Cluster, or disk-based implementation such as http://ssdb.io.
 
 <b>Q. Why use a Redis database rather than SQL?
 <br>A.</b> Redis is the most popular NoSQL database. It supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
