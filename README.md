@@ -13,9 +13,18 @@ Note that (insecure) HTTP access to all RedisHub domains, and some other URLs, a
 
 Build a site "redishub.com" with a foundational HTTP service for accessing and mutating keys in a hosted Redis "keyspace." 
 
+A keyspace is an online database accessible via Redis-style commands, and can be Redis i.e. in-memory, or disk-based e.g. via ssdb.io.
+
 User stories:
-- Use a free hosted Redis "keyspace" for specific low-volume purposes
-- Deploy their own private "redishub" instance using the `rquery` opensource implementation
+- Use a free hosted Redis "keyspace" for low-volume ephemeral purposes (currently Redis so in-memory i.e. very fast)
+- Deploy your own private "redishub" instance using the `rquery` opensource implementation, as used by Redishub
+
+Potential uses of keyspaces:
+- serverless backend database 
+- storing encrypted data
+- public/private online message hub
+- centralised logging, monitoring and alerting purposes
+- aggregated analytics
 
 Future user stories:
 - encrypted keys (using client cert)
