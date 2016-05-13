@@ -53,7 +53,7 @@ Related specification: https://github.com/evanx/component-validator
 <b>Q. What is RedisHub?</b> 
 <br><b>A.</b> My pet project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
 
-<b>Q. What is RedisHub keyspace?
+<b>Q. What is a RedisHub keyspace?
 <br>A.</b> An online Redis database partition, accessed via HTTP (over SSL).
 
 <b>Q. What technology is behind a RedisHub keyspace?
