@@ -60,7 +60,7 @@ See: https://github.com/evanx/rquery
 
 Notable features (June 2016):
 - Register-expire for adhoc ephemeral keyspaces
-- Identity verification via Telegram.org chat bot @redishub_bot`
+- Identity verification via Telegram.org chat bot `@redishub_bot`
 - Access secured via client-authenticated SSL (secure.redishub.com)
 - Generate tokens for Google Authenticator 
 
