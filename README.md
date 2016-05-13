@@ -69,7 +69,7 @@ Related specification: https://github.com/evanx/component-validator
 <br></b> Certainly Redis excels at caching and is widely applied for this use case. Actually, Redis is an in-memory "data structure server." It has many use cases, including fast shareable data storage, analytics, geo-spatial processing, synchronisation, queuing and messaging.
 
 <b>Why use a hosted Redis service rather than one's own?
-<br></b> Actually Redishub doesn't offer hosted Redis instances (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. Actually I want to see how useful it might be for me personally. It's fun to build something that is potentially generally useful, and make it publically available platform from the outset. I hope it might promote Redis. In any event, I'm sure it'll promote my skills and profile. But really I'm doing it for fun.
+<br></b> Actually Redishub doesn't offer hosted Redis instances (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. Actually I want to see how useful it might be for me personally. It's fun to build something that is potentially generally useful, and make it publically available platform from the outset. I hope it might promote Redis in some small way.
 
 <b>Will you ever offer a hosted Redis service?
 <br></b> There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas. However I'm more interested in supporting "bots." 
