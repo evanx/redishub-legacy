@@ -68,6 +68,12 @@ Related specification: https://github.com/evanx/component-validator
 <b>Q. What are Redishub bots?
 <br>A.</b> These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps. The platform handles identity, authorisation, configuration, deployment, logging, metrics and messaging. However, a key simplication is that Redis is used across the board for all these concerns. Therefore the same UI tool for editing configuration, can be used for editing application data. Also tools to view data can be applied to multiple aspects of the platform.
 
+<b>Q. But isn't Redis just for caching?
+<br>A.</b> Certainly Redis excels at caching and is widely used for this. Actually it is an in-memory "data structure server." It has many usecases.
+
+<b>Q. What about ACID?
+<br>A.</b> We wish to support specific application transactions that are guaranteed to be durable, e.g. via a disk-based logging database. This a trade-off on performance in favour of durability.
+
 
 ### Status
 
