@@ -9,46 +9,10 @@ Documentation: https://github.com/evanx/rquery
 
 Note that (insecure) HTTP access to all RedisHub domains, and some other URLs, are redirected to this info page.
 
-See <a href="https://github.com/evanx/redishub/blob/master/FAQ.md">Frequently Asked Questions</a>.
 
-### Goals
+### Status
 
-Build a site "redishub.com" with a foundational HTTP service for accessing and mutating keys in a hosted Redis "keyspace."
-
-A keyspace is an online database accessible via Redis-style commands, and can be Redis i.e. in-memory, or disk-based e.g. via ssdb.io.
-
-User stories:
-- Use a free hosted Redis "keyspace" for low-volume ephemeral purposes (currently Redis so in-memory i.e. very fast)
-- Deploy your own private "redishub" instance using the `rquery` opensource implementation, as used by Redishub
-
-Potential uses of keyspaces:
-- serverless backend database
-- storing encrypted data
-- public/private online message hub
-- centralised logging, monitoring and alerting purposes
-- aggregated analytics
-
-Future user stories:
-- encrypted keys (using client cert)
-- Manage the account admins and users
-- Manage access to keyspaces
-- Group/classify keyspaces for access control purposes
-- Web admin console to inspect and manage keys
-- Use disk-based keyspaces for archival
-- Manage auto-archival of keys
-- Enable a durable transaction log facility with playback for recovery
-- Deploy Redishub "bots" to `bots.redishub.com` to build Redis-driven serverless backends
-- Page bots generate web pages from React templates, populated with data from Redishub
-
-Redishub bots are special ES2016 scripts that use keyspaces for:
-- pulling their configuration
-- pushing logging messages e.g. info and errors
-- pushing metrics e.g. for response time histograms, user geo distribution, et al
-- messaging via Redis lists e.g. for microservice app architecture
-- storing application state e.g. to support stateless microservices for auto-scaling
-- persistent data storage via Redis keys e.g. values, lists, sets, sorted sets, hashes, geo et al
-
-Related specification: https://github.com/evanx/component-validator
+UNSTABLE, INCOMPLETE
 
 
 ### FAQ
@@ -91,9 +55,45 @@ I'm choosing to define "bots" as server-side components which access one or more
 <br></b> I've always liked the sound of Telegram, e.g. their security and openness. Also I have an Ubuntu phone, which has Telegram, but not others. Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. "Then we'll be millionares!" as Homer says ;)
 
 
-### Status
+### Goals
 
-UNSTABLE, INCOMPLETE
+Build a site "redishub.com" with a foundational HTTP service for accessing and mutating keys in a hosted Redis "keyspace."
+
+A keyspace is an online database accessible via Redis-style commands, and can be Redis i.e. in-memory, or disk-based e.g. via ssdb.io.
+
+User stories:
+- Use a free hosted Redis "keyspace" for low-volume ephemeral purposes (currently Redis so in-memory i.e. very fast)
+- Deploy your own private "redishub" instance using the `rquery` opensource implementation, as used by Redishub
+
+Potential uses of keyspaces:
+- serverless backend database
+- storing encrypted data
+- public/private online message hub
+- centralised logging, monitoring and alerting purposes
+- aggregated analytics
+
+Future user stories:
+- encrypted keys (using client cert)
+- Manage the account admins and users
+- Manage access to keyspaces
+- Group/classify keyspaces for access control purposes
+- Web admin console to inspect and manage keys
+- Use disk-based keyspaces for archival
+- Manage auto-archival of keys
+- Enable a durable transaction log facility with playback for recovery
+- Deploy Redishub "bots" to `bots.redishub.com` to build Redis-driven serverless backends
+- Page bots generate web pages from React templates, populated with data from Redishub
+
+Redishub bots are special ES2016 scripts that use keyspaces for:
+- pulling their configuration
+- pushing logging messages e.g. info and errors
+- pushing metrics e.g. for response time histograms, user geo distribution, et al
+- messaging via Redis lists e.g. for microservice app architecture
+- storing application state e.g. to support stateless microservices for auto-scaling
+- persistent data storage via Redis keys e.g. values, lists, sets, sorted sets, hashes, geo et al
+
+Related specification: https://github.com/evanx/component-validator
+
 
 
 ### Related
