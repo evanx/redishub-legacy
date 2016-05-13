@@ -66,7 +66,7 @@ Related specification: https://github.com/evanx/component-validator
 <br>A.</b> Atomicity, consistency, isolation and durability is that offered by Redis or other back end engines. This a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the event a server crash, versus the heavy performance cost of a disk sync on every transaction. We wish to support highly durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. However, I wish firstly to address back end requirements for content, gaming and analytics use cases.
 
 <b>Q. But isn't Redis just for caching?
-<br>A.</b> Certainly Redis excels at caching and is widely applied for this use case. Actually, Redis is an in-memory "data structure server." It has many use cases, including fast shareable data storage, messaging.
+<br>A.</b> Certainly Redis excels at caching and is widely applied for this use case. Actually, Redis is an in-memory "data structure server." It has many use cases, including fast shareable data storage, analytics, geo-spatial processing, synchronisation, queuing and messaging.
 
 <b>Q. Why use a hosted Redis service rather than one's own?
 <br>A.</b> Actually Redishub doesn't offer hosted Redis instances (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. I have no idea if it will be popular or not. Actually I want to see how useful it might be for me personally.
