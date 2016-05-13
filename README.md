@@ -63,7 +63,7 @@ Related specification: https://github.com/evanx/component-validator
 <br>A.</b> Redis is the most popular NoSQL database. It supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
 
 <b>Q. Why use a hosted Redis service rather than one's own?
-<br>A.</b> Actually Redishub doesn't offer hosted Redis instances per se (yet). It addresses some use cases for an online storage/messaging service.
+<br>A.</b> Actually Redishub doesn't offer hosted Redis instances per se (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. I have no idea if it will be popular or not. Actually I want to see how useful it might be for me personally, and see how that can play out.
 
 <b>Q. But isn't Redis just for caching?
 <br>A.</b> Certainly Redis excels at caching and is widely used for this. Actually it is an in-memory "data structure server." It has many usecases, including fast shared persistent data storage and messaging.
