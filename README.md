@@ -57,7 +57,7 @@ These are envisaged as Redis-based lambdas that can be composed into microservic
 They should be trivial to write, deploy, monitor, manage and debug. 
 I'm choosing to define "bots" as server-side components which access one or more keyspaces. They must be stateless to enable auto-scaling. They must be written using a specific ES2016 framework, to simplify orchestration and management, e.g. configuration, keyspace access, logging and metrics.
 
-The dream is to enable developers, especially myself, to quickly and easily write and deploy fun bots that leverage Telegram, Ubuntu Touch scopes et al. 
+My goal is to enable developers, especially myself, to quickly and easily write and deploy fun bots that leverage Telegram, Ubuntu Touch scopes et al. 
 
 ##### How will Redishub support its bots?
 
