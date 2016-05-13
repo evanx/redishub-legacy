@@ -48,6 +48,26 @@ Redishub bots are special ES2016 scripts that use keyspaces for:
 
 Related specification: https://github.com/evanx/component-validator
 
+### FAQ 
+
+<b>Q. What is RedisHub?</b> 
+<br>A. My pet project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
+
+<b>Q. What is RedisHub keyspace?</b> 
+<br>A. An online Redis database partition, accessed via HTTP (over SSL).
+
+<b>Q. What technology is behind a RedisHub keyspace?</b> 
+<br>A. Currently a multi-tenanted Redis instance. Maybe later a dedicated Redis instance, Redis Cluster and/or disk-based implementation such as https://ssdb.io.
+
+<b>Q. Why use a Redis database rather than SQL?</b>
+<br>A. The benefits of Redis for some use cases are well documentated elsewhere. Suffice it to say that Redis is perhaps the most popular NoSQL database. Personally I'm attracted to its speed, although some of that benefit is lost when it is accessed remoted over HTTP. Even so, it supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
+
+<b>Q. Why use a hosted Redis service rather than one's own?</b>
+<br>A. Actually Redishub doesn't offer hosted Redis instances per se (yet). It addresses some use cases where an online storage service is convenient, and where there is scope to improve the developer experience, and to perhaps build something that is worth using.
+
+<b>Q. What are Redishub bots?</b>
+<br>A. These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps. But I still have to realise this, not least in terms of identity, authorisation, configuration, deployment, logging, metrics and messaging. However, a key simplication is that Redis is used across the board for all these concerns. I'll probably build something quite minimal and then lose interest. Time will tell.
+
 
 ### Status
 
