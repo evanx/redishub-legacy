@@ -57,7 +57,7 @@ Related specification: https://github.com/evanx/component-validator
 <br>A.</b> An online Redis database partition, accessed via HTTPS.
 
 <b>Q. What technology is behind a RedisHub keyspace?
-<br>A.</b> Currently a multi-tenanted Redis instance. Maybe later a dedicated Redis instance, Redis Cluster and/or disk-based implementation such as https://ssdb.io.
+<br>A.</b> Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster, dedicated Redis instance, dedicated Redis Cluster, or disk-based implementation such as https://ssdb.io.
 
 <b>Q. Why use a Redis database rather than SQL?
 <br>A.</b> Redis is the most popular NoSQL database. It supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
@@ -66,10 +66,12 @@ Related specification: https://github.com/evanx/component-validator
 <br>A.</b> Actually Redishub doesn't offer hosted Redis instances per se (yet). It addresses some use cases for an online storage/messaging service.
 
 <b>Q. But isn't Redis just for caching?
-<br>A.</b> Certainly Redis excels at caching and is widely used for this. Actually it is an in-memory "data structure server." It has many usecases.
+<br>A.</b> Certainly Redis excels at caching and is widely used for this. Actually it is an in-memory "data structure server." It has many usecases, including fast shared persistent data storage and messaging.
+
+<b>Q. ?</b> 
 
 <b>Q. What about ACID?
-<br>A.</b> We wish to support specific application transactions that are guaranteed to be durable, e.g. via a disk-based logging database. This a trade-off on performance in favour of durability.
+<br>A.</b> Atomicity, consistency, isolation and durability is that offered by Redis or other back end engines. This a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the event a server crash, versus the heavy performance cost of a disk sync on every transaction. We wish to support highly durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. 
 
 <b>Q. What are Redishub bots?
 <br>A.</b> These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps. The platform handles identity, authorisation, configuration, deployment, logging, metrics and messaging. However, a key simplication is that Redis is used across the board for all these concerns. Therefore the same UI tool for editing configuration, can be used for editing application data. Also tools to view data can be applied to multiple aspects of the platform.
