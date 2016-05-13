@@ -54,7 +54,7 @@ Related specification: https://github.com/evanx/component-validator
 <br><b>A.</b> My pet project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
 
 <b>Q. What is a RedisHub keyspace?
-<br>A.</b> An online Redis database partition, accessed via HTTP (over SSL).
+<br>A.</b> An online Redis database partition, accessed via HTTPS.
 
 <b>Q. What technology is behind a RedisHub keyspace?
 <br>A.</b> Currently a multi-tenanted Redis instance. Maybe later a dedicated Redis instance, Redis Cluster and/or disk-based implementation such as https://ssdb.io.
