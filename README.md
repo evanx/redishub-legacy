@@ -53,8 +53,11 @@ There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCa
 
 ##### What are Redishub bots?
 
-These are envisaged as experimental Redis-based lambdas that can be composed into microservices and apps.
+These are envisaged as Redis-based lambdas that can be composed into microservices and apps.
+They should be trivial to write, deploy, monitor, manage and debug. 
 I'm choosing to define "bots" as server-side components which access one or more keyspaces. They must be stateless to enable auto-scaling. They must be written using a specific ES2016 framework, to simplify orchestration and management, e.g. configuration, keyspace access, logging and metrics.
+
+The dream is to enable developers, especially myself, to quickly and easily write and deploy fun bots that leverage Telegram, Ubuntu Touch scopes et al, and Redishub. 
 
 ##### How will Redishub support its bots?
 
