@@ -82,7 +82,7 @@ I'm choosing to define "bots" as server-side components which access one or more
 <b>How will Redishub support its bots?
 <br></b> The platform should handle identity, authorization, configuration, deployment, logging, metrics and messaging. However, a major simplication is that Redis will be used across the board for all these concerns. For example, the same UI tool for inspecting and editing configuration, can be used for application data.
 
-<b>Why would a developer use an indie service which might well go the way of Parse?</b>
+<b>Why would a developer use an indie service which might be abandoned?</b>
 <br></b> That is a very good question. That outcome is likely and acceptable, since I'll be learning a great deal and boosting my professional skills and profile.
 
 <b>Why Telegram.org?
