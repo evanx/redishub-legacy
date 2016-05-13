@@ -49,7 +49,7 @@ Actually Redishub doesn't offer hosted Redis instances (yet). It addresses some 
 
 ##### Will you ever offer a hosted Redis service?
 
-There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas. However I'm more interested in orchestrating "bots" first.
+There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache, RedisLabs, OpenRedis and RedisGreen. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas, and must do so to automate Redishub itself. However I'm more interested in serverless "bots" than Redis hosting per se.
 
 ##### What are Redishub bots?
 
