@@ -52,10 +52,10 @@ Related specification: https://github.com/evanx/component-validator
 ### FAQ
 
 <b>What is RedisHub?</b>
-<br><b>A.</b> My pet R&D project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
+<br></b> My pet R&D project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
 
-<b>What is a RedisHub keyspace?
-<br></b> An online Redis database partition, accessed via HTTPS.
+<b>Who is evanx?</b>
+<br></b> I'm a professional Node, React and Redis web developer, based in Cape Town, working on content sites for a major news publisher. In my spare time, I work on my Github projects that invariably align with my professional interests. Previously, I've been a Java developer, PostgreSQL DBA and Linux engineer. That's why I still love `bash` so much ;)
 
 <b>What technology is behind a RedisHub keyspace?
 <br></b> Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster, dedicated Redis instance, dedicated Redis Cluster, or disk-based implementation such as http://ssdb.io.
@@ -82,8 +82,8 @@ I'm choosing to define "bots" as server-side components which access one or more
 <b>How will Redishub support its bots?
 <br></b> The platform should handle identity, authorization, configuration, deployment, logging, metrics and messaging. However, a major simplication is that Redis will be used across the board for all these concerns. For example, the same UI tool for inspecting and editing configuration, can be used for application data.
 
-<b>Why would a developer use an indie service which might be abandoned?</b>
-<br></b> That is a very good question. That outcome is likely and acceptable, since I'll be learning a great deal and boosting my professional skills and profile.
+<b>Why would a developer use an indie service which might become abandonware?</b>
+<br></b> That is a very good question. It would have to address specific use cases better than competing products from AWS and many others, and that is a tall order. But I'll be learning a great deal and boosting my professional skills and profile in the process, and I'm excited to try to build something simple and fun. I have the interest and computing resources are cheap. So I'm happy to offer a free albeit necessarily limited service to any number of developers, even if that costs me $1000 per month on computing resources to support 100 developers, since that implies that Redishub is a successful project. I expect to loose money. Anyway I'd rather be acquired for a million dollars down the line, than try to make a few dollars here and there ;)
 
 <b>Why Telegram.org?
 <br></b> I've always liked the sound of Telegram, e.g. their security and openness. Also I have an Ubuntu phone, which has Telegram, but not others. Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. "Then we'll be millionares!" as Homer says ;)
