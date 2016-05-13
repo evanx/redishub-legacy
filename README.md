@@ -54,39 +54,39 @@ Related specification: https://github.com/evanx/component-validator
 <br><b>A.</b> My pet project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
 
 <b>Q. What is a RedisHub keyspace?
-<br>A.</b> An online Redis database partition, accessed via HTTPS.
+<br></b> An online Redis database partition, accessed via HTTPS.
 
 <b>Q. What technology is behind a RedisHub keyspace?
-<br>A.</b> Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster, dedicated Redis instance, dedicated Redis Cluster, or disk-based implementation such as http://ssdb.io.
+<br></b> Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster, dedicated Redis instance, dedicated Redis Cluster, or disk-based implementation such as http://ssdb.io.
 
 <b>Q. Why use a Redis database rather than SQL?
-<br>A.</b> Redis is the most popular NoSQL database. It supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
+<br></b> Redis is the most popular NoSQL database. It supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos.
 
 <b>Q. What about ACID?
-<br>A.</b> Atomicity, consistency, isolation and durability is that offered by Redis or other back end engines. This a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the event a server crash, versus the heavy performance cost of a disk sync on every transaction. We wish to support highly durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. However, I wish firstly to address back end requirements for content, gaming and analytics use cases.
+<br></b> Atomicity, consistency, isolation and durability is that offered by Redis or other back end engines. This a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the event a server crash, versus the heavy performance cost of a disk sync on every transaction. We wish to support highly durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. However, I wish firstly to address back end requirements for content, gaming and analytics use cases.
 
 <b>Q. But isn't Redis just for caching?
-<br>A.</b> Certainly Redis excels at caching and is widely applied for this use case. Actually, Redis is an in-memory "data structure server." It has many use cases, including fast shareable data storage, analytics, geo-spatial processing, synchronisation, queuing and messaging.
+<br></b> Certainly Redis excels at caching and is widely applied for this use case. Actually, Redis is an in-memory "data structure server." It has many use cases, including fast shareable data storage, analytics, geo-spatial processing, synchronisation, queuing and messaging.
 
 <b>Q. Why use a hosted Redis service rather than one's own?
-<br>A.</b> Actually Redishub doesn't offer hosted Redis instances (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. I have no idea if it will be popular or not. Actually I want to see how useful it might be for me personally.
+<br></b> Actually Redishub doesn't offer hosted Redis instances (yet). It addresses some indie use cases where an online serverless storage/messaging service is convenient. I have no idea if it will be popular or not. Actually I want to see how useful it might be for me personally.
 
 <b>Q. Will you ever offer a hosted Redis service?
-<br>A.</b> There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas. However I'm more interested in supporting "bots." 
+<br></b> There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas. However I'm more interested in supporting "bots." 
 
 <b>Q. What are Redishub bots?
-<br>A.</b> These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps. 
+<br></b> These are envisaged as Redis-based serverless lambdas that can be composed into microservices and apps. 
 I'm choosing to define "bots" as server-side components which access one or more keyspaces. They must be stateless to enable auto-scaling.
 They are written using a specific ES2016 SDK, to simplify orchestration. 
 
 <b>Q. How will Redishub support its bots?
-<br>A.</b> The platform should handle identity, authorization, configuration, deployment, logging, metrics and messaging. However, a major simplication is that Redis will be used across the board for all these concerns. Therefore the same UI tool for editing configuration, can be used for editing application data. Also tools to administer Redis data could be applied to multiple aspects of the platform.
+<br></b> The platform should handle identity, authorization, configuration, deployment, logging, metrics and messaging. However, a major simplication is that Redis will be used across the board for all these concerns. Therefore the same UI tool for editing configuration, can be used for editing application data. Also tools to administer Redis data could be applied to multiple aspects of the platform.
 
 <b>Q. Why would a developer use an indie service which might well go the way of Parse?</b> 
-<br>A.</b> That is a very good question. Quite possibly no one will use it except myself, and possibly only for fun. That outcome is acceptable, since I'll be learning a great deal and boosting my professional skills and profile.
+<br></b> That is a very good question. Quite possibly no one will use it except myself, and possibly only for fun. That outcome is acceptable, since I'll be learning a great deal and boosting my professional skills and profile.
 
 <b>Q. Why Telegram.org?
-<br>A.</b> I'll become a Telegram.org user when my Ubuntu phone arrives. I've always liked the sound of Telegram, e.g. their security and openness. Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. "Then we'll be millionares!" as Homer says ;)
+<br></b> I'll become a Telegram.org user when my Ubuntu phone arrives. I've always liked the sound of Telegram, e.g. their security and openness. Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. "Then we'll be millionares!" as Homer says ;)
 
 
 ### Status
