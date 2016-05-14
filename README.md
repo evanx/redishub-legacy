@@ -67,8 +67,8 @@ That is a very good question. I guess it would have to be compelling for a speci
 
 ##### What is free?
 
-It makes sense for the free usage tier to support most use cases within reasonable resource limits, e.g. where the computing cost is less than $10 dollars per user per annum, e.g. peak database size of 100MB with 200Gb transfer per month. 
-Users who wish to exceed those limits, should become "sponsors," contributing the equivalent of $100 per annum towards our computing bills, via BTC transfer to our Bitcoin wallet. Sponsors' limits are 400MB RAM (Redis) storage and 1TB transfer per month. 
+It makes sense to offer a free service to support most use cases within reasonable resource limits, e.g. where the computing cost is less than $10 dollars per user per annum, e.g. peak database size of 100MB with 200Gb transfer per month. 
+Users who wish to exceed those limits, should become a "Sponsor" contributing the equivalent of $100 per annum to our Bitcoin wallet. Sponsors' limits are 400MB RAM (Redis) storage and 1TB transfer per month. 
 
 ##### Why Telegram.org?
 
