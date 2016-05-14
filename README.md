@@ -63,7 +63,13 @@ The platform should handle identity, auth, configuration, deployment, logging, m
 
 ##### Why would a developer use an indie service which might become abandonware?
 
-That is a very good question. It would have to address specific use cases better than competing products from AWS and many others, and that is a tall order. But I'll be learning a great deal and boosting my professional skills and profile in the process. I'm keen to build something simple, interesting and fun. Computing resources are cheap. So I'm happy to offer a free, but necessarily resource limited service, to any number of developers.
+That is a very good question. I guess it would have to be compelling for a specific niche, e.g. Telegram bots. 
+
+##### What is free?
+
+It makes sense for the free usage tier to support most use cases within reasonable resource limits, e.g. where the computing cost is less than a dollar per user per month, e.g. peak database size of 100MB with 200Gb transfer per month. 
+Users who wish to exceed those limits, should become "sponsors," contributing $5 per month towards our computing bills. Sponsors' limits are 400MB RAM (Redis) storage and 1TB transfer per month.
+
 
 ##### Why Telegram.org?
 
