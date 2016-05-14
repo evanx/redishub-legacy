@@ -23,7 +23,7 @@ My pet R&D project, to use my favourite toys, namely Redis, Node, React and ES20
 
 ##### Who are you?
 
-I'm a professional Node, React and Redis web developer and full stack engineer based in Cape Town, working on content sites for a major news publisher. In my spare time, I work on my Github projects that invariably align with my professional interests. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. That's why I love bash shell so much ;)
+I'm a web developer based in Cape Town, working on content sites for a news publisher, using Node, React and Redis. In my spare time, I work on my Github projects. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. I'm also fond of bash shell programming. Find me at https://twitter.com/@evanxsummers.
 
 ##### What technology is behind a RedisHub keyspace?
 
