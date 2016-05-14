@@ -31,7 +31,7 @@ Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster,
 
 ##### Why use a Redis database rather than SQL?
 
-Redis is a popular and awesome NoSQL database. It's an in-memory database and so really fast. It supports abstract data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos. Having said that, I love SQL too and may use PostgreSQL for some transactional aspects of Redishub.
+Redis is a popular and awesome NoSQL database. It's in-memory and so really fast. It supports data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos. Having said that, I love SQL too and may use PostgreSQL for some transactional aspects of Redishub.
 
 ##### What about ACID?
 
