@@ -59,7 +59,7 @@ They must be stateless to enable auto-scaling, but can store private and shared 
 
 ##### How will Redishub support its bots?
 
-The platform should handle identity, auth, configuration, deployment, monitoring, scaling, messaging and debugging. However, a major simplication is that Redis will be used across the board for all these concerns. For example, the same UI tool for inspecting and editing configuration, can be used for application data.
+The platform should handle identity, auth, configuration, deployment, logging, messaging, monitoring and scaling. A notable simplication is that Redis will be used across the board for all these concerns.
 
 ##### Why would a developer use an indie service which might become abandonware?
 
