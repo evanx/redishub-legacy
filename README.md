@@ -67,8 +67,8 @@ That is a very good question. I guess it would have to be compelling for a speci
 
 ##### What is free?
 
-It makes sense to offer a free service to support most use cases within reasonable resource limits, e.g. where the computing cost is less than $10 dollars per user per annum, e.g. peak database size of 100MB with 200Gb transfer per month. 
-Users who wish to exceed those limits, should become a "Sponsor" contributing the equivalent of $100 per annum to our Bitcoin wallet. Sponsors' limits are 400MB RAM (Redis) storage and 1TB transfer per month, which you can double up etc.
+It makes sense to offer a free service to support most use cases within reasonable resource limits, e.g. where the computing cost is less than one dollar per user per month, e.g. peak database size of 100MB with a 100Gb transfer limit per month. 
+Users who wish to exceed those limits, should become a "Sponsor" contributing the equivalent of $10 per month to our Bitcoin wallet. Sponsors' limits are bumped up to 400MB RAM (Redis) storage, 10Gb archival storage and 1TB transfer per month, which you can double up etc.
 
 ##### Why Telegram.org?
 
