@@ -65,7 +65,7 @@ The platform should handle identity, auth, configuration, deployment, monitoring
 
 ##### Why would a developer use an indie service which might become abandonware?
 
-That is a very good question. It would have to address specific use cases better than competing products from AWS and many others, and that is a tall order. But I'll be learning a great deal and boosting my professional skills and profile in the process. I'm keen to build something simple, interesting and fun. Computing resources are cheap. So I'm happy to offer a free, but necessarily resource limited service, to any number of developers, even if it costs me personally $500 per month on computing resources to support 100 developers, since that implies that Redishub is a successful project. Anyway I'd rather be acquired for a million dollars down the line, than try to make a few dollars here and there ;)
+That is a very good question. It would have to address specific use cases better than competing products from AWS and many others, and that is a tall order. But I'll be learning a great deal and boosting my professional skills and profile in the process. I'm keen to build something simple, interesting and fun. Computing resources are cheap. So I'm happy to offer a free, but necessarily resource limited service, to any number of developers.
 
 ##### Why Telegram.org?
 
