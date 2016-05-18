@@ -35,7 +35,7 @@ Redis is a popular and awesome NoSQL database. It's in-memory and so really fast
 
 ##### What about ACID?
 
-Atomicity, consistency, isolation and durability guarantees are those offered by Redis. This is a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the rare event of a server crash, versus the heavy performance cost of a disk sync on every transaction. 
+Atomicity, consistency, isolation and durability guarantees are those offered by Redis. This is a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the rare event of a server crash, versus the heavy performance cost of a disk sync on every transaction.
 
 We wish to support durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. However, I wish firstly to address content, messaging and analytics use cases, e.g. optionally trading off performance for database size using ssdb or ardb.
 
@@ -45,39 +45,39 @@ Certainly Redis is the leading caching server. But actually Redis is an in-memor
 
 ##### Why use a hosted Redis service rather than one's own?
 
-Actually Redishub doesn't offer hosted Redis instances (yet). 
+Actually Redishub doesn't offer hosted Redis instances (yet).
 It addresses some use cases where an online serverless storage/messaging service is convenient.
 Perhaps I'll find it useful, and if so perhaps other Indie developers will too, although I should be under no allusions in that respect.
 
 ##### Will you ever offer a hosted Redis service?
 
-There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache, RedisLabs, OpenRedis and RedisGreen. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas, and must do so to automate Redishub itself. However I'm more interested in serverless "bots" than Redis hosting per se.
+There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache, RedisLabs, OpenRedis and RedisGreen. Nevertheless, I want to experiment with orchestrating Redis instances, clusters and replicas, and must do so to automate Redishub itself. However I'm more interested in serverless lambdas than Redis hosting per se.
 
-##### What are Redishub bots?
+##### What are Redishub lambdas?
 
 These are envisaged as Redis-based lambdas that can be composed into microservices and apps.
-I'm choosing to define "bots" as server-side components which access one or more keyspaces. 
+I'm choosing to misdefine "lambdas" as server-side components which access one or more keyspaces.
 They must be stateless to enable auto-scaling, but can store private and shared state in Redis of course. They must be written using a specific ES2016 framework, to simplify orchestration and management, e.g. configuration, keyspace access, logging and metrics.
 
-##### How will Redishub support its bots?
+##### How will Redishub support its lambdas?
 
 The platform should handle identity, auth, configuration, deployment, logging, messaging, monitoring and scaling. A notable simplication is that Redis will be used across the board for all these concerns.
 
 ##### Why would a developer use an indie service which might become abandonware?
 
-That is a very good question. I guess it would have to be compelling for a specific niche, e.g. Telegram bots. 
+That is a very good question. I guess it would have to be compelling for a specific niche, e.g. Telegram bots.
 
 ##### What is free?
 
-I want to offer a free public utility in perpetuity to support most low-volume use cases, where the computing cost is less than 10c per user per month, e.g. peak database size of 10MB with a 10Gb transfer limit per month. 
+I want to offer a free public utility in perpetuity to support most low-volume use cases, where the computing cost is less than 10c per user per month, e.g. peak database size of 10MB with a 10Gb transfer limit per month.
 Users who wish to exceed those limits, should become a "Sponsor" contributing the equivalent of $2 per month to our Bitcoin wallet. Sponsors' limits are bumped up to 100MB RAM (Redis) storage, 2Gb archival storage and 100Gb transfer per month, which you can double up etc.
 
 ##### Why Telegram.org?
 
 Initially, in order to focus on back end, I haven't yet built a web site with signup, signin with Github, etc. Nevertheless one must be able to identify and alert users if needs be.
 
-I've always liked the sound of Telegram, e.g. their security and openness. 
-Also I have an Ubuntu phone arriving next week, which has Telegram, but not WhatsApp etc. 
+I've always liked the sound of Telegram, e.g. their security and openness.
+Also I have an Ubuntu phone arriving next week, which has Telegram, but not WhatsApp etc.
 Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. "Then we'll be millionares!" as Homer says ;)
 
 
@@ -107,10 +107,10 @@ Future user stories:
 - Use disk-based keyspaces for archival
 - Manage auto-archival of keys
 - Enable a durable transaction log facility with playback for recovery
-- Deploy Redishub "bots" to `bots.redishub.com` to build Redis-driven serverless backends
-- Page bots generate web pages from React templates, populated with data from Redishub
+- Deploy Redishub "lambdas" to `lambdas.redishub.com` to build Redis-driven serverless backends
+- Page lambdas generate web pages from React templates, populated with data from Redishub
 
-Redishub bots are special ES2016 scripts that use keyspaces for:
+Redishub lambdas are special ES2016 scripts that use keyspaces for:
 - pulling their configuration
 - pushing logging messages e.g. info and errors
 - pushing metrics e.g. for response time histograms, user geo distribution, et al
