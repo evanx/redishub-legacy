@@ -67,12 +67,16 @@ That is a very good question. I guess it would have to be compelling for a speci
 
 ##### What is free?
 
-It makes sense to offer a free service to support most use cases within reasonable resource limits, e.g. where the computing cost is less than one dollar per user per month, e.g. peak database size of 100MB with a 100Gb transfer limit per month. 
-Users who wish to exceed those limits, should become a "Sponsor" contributing the equivalent of $10 per month to our Bitcoin wallet. Sponsors' limits are bumped up to 400MB RAM (Redis) storage, 10Gb archival storage and 1TB transfer per month, which you can double up etc.
+I want to offer a free public utility in perpetuity to support most low-volume use cases, where the computing cost is less than 10c per user per month, e.g. peak database size of 10MB with a 10Gb transfer limit per month. 
+Users who wish to exceed those limits, should become a "Sponsor" contributing the equivalent of $2 per month to our Bitcoin wallet. Sponsors' limits are bumped up to 100MB RAM (Redis) storage, 2Gb archival storage and 100Gb transfer per month, which you can double up etc.
 
 ##### Why Telegram.org?
 
-I've always liked the sound of Telegram, e.g. their security and openness. Also I have an Ubuntu phone, which has Telegram, but not others. Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. "Then we'll be millionares!" as Homer says ;)
+Initially, in order to focus on back end, I haven't yet built a web site with signup, signin with Github, etc. Nevertheless one must be able to identify and alert users if needs be.
+
+I've always liked the sound of Telegram, e.g. their security and openness. 
+Also I have an Ubuntu phone arriving next week, which has Telegram, but not WhatsApp etc. 
+Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. "Then we'll be millionares!" as Homer says ;)
 
 
 ### Goals
