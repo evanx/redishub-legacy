@@ -70,6 +70,7 @@ That is a very good question. I guess it would have to be compelling for a speci
 ##### What is free?
 
 I want to offer a free public utility in perpetuity to support most low-volume use cases, where the computing cost is less than 10c per user per month, e.g. peak database size of 10MB with a 10Gb transfer limit per month.
+
 Users who wish to exceed those limits, should become a "Sponsor" contributing the equivalent of 50c per month to our Bitcoin wallet. Sponsors' limits are bumped up to 50MB RAM (Redis) storage, 1Gb archival storage and 50Gb transfer per month, which you can double up etc.
 
 ##### Why Telegram.org?
