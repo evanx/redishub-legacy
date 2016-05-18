@@ -45,7 +45,9 @@ Certainly Redis is the leading caching server. But actually Redis is an in-memor
 
 ##### Why use a hosted Redis service rather than one's own?
 
-Actually Redishub doesn't offer hosted Redis instances (yet). It addresses some use cases where an online serverless storage/messaging service is convenient. Perhaps I'll find it useful, and if so perhaps other Indie developers will too, although I should be under no allusions in that respect.
+Actually Redishub doesn't offer hosted Redis instances (yet). 
+It addresses some use cases where an online serverless storage/messaging service is convenient.
+Perhaps I'll find it useful, and if so perhaps other Indie developers will too, although I should be under no allusions in that respect.
 
 ##### Will you ever offer a hosted Redis service?
 
