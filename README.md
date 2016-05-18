@@ -71,11 +71,13 @@ That is a very good question. I guess it would have to be compelling for a speci
 
 I want to offer a free public utility in perpetuity to support most low-volume use cases, where the computing cost is less than 10c per user per month, e.g. peak database size of 10MB with a 10Gb transfer limit per month.
 
-Users who wish to exceed those limits, should become a "Sponsor" contributing the equivalent of 50c per month to our Bitcoin wallet. Sponsors' limits are bumped up to 50MB RAM (Redis) storage, 1Gb archival storage and 50Gb transfer per month, which you can double up etc.
+##### What about higher volume usage?
+
+Users who wish to exceed the above-mentioned free limits, should become a "Sponsor" contributing the equivalent of 50c per month to our Bitcoin wallet: 1Djf7wqB7jqBTWWMoLht9MhLeKBZEkDjS5. Sponsors' limits are bumped up to 30MB RAM (Redis) storage and 30Gb transfer per month. You can double up as needed.
 
 ##### Why Telegram.org?
 
-Initially, in order to focus on back end, I haven't yet built a web site with signup, signin with Github, etc. Nevertheless one must be able to identify and alert users if needs be.
+Initially, in order to focus on back end, I haven't yet built a web site with signup, signin with Github, etc. Nevertheless one must be able to identify and alert users for operation reasons, e.g. send monthly usage reports.
 
 I've always liked the sound of Telegram, e.g. their security and openness.
 Also I have an Ubuntu phone arriving next week, which has Telegram, but not WhatsApp etc.
