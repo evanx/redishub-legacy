@@ -27,7 +27,7 @@ I'm a web developer based in Cape Town, working on content sites for a news publ
 
 ##### What technology is behind a RedisHub keyspace?
 
-Currently a multi-tenanted Redis instance. Later a multi-tenanted Redis Cluster, dedicated Redis instance, dedicated Redis Cluster, or disk-based implementation such as http://ssdb.io.
+Currently a multi-tenanted Redis instance on a 512Mb Digital Ocean VM. Perhaps down the line, a Redis Cluster, complemented by a disk-based implementation such as http://ssdb.io, for archival and free accounts.
 
 ##### Why use a Redis database rather than SQL?
 
