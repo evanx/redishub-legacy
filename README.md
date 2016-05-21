@@ -69,11 +69,17 @@ That is a very good question. I guess it would have to be compelling for a speci
 
 ##### What is free?
 
-I want to offer a free public utility in perpetuity to support most low-volume use cases, where the computing cost is less than 10c per user per month, e.g. peak database size of 10MB with a 10Gb transfer limit per month.
+I want to offer a free public utility in perpetuity to support most low-volume use cases, where the computing cost is less than 10c per user per month, e.g. peak database size of 10MB RAM with a 10Gb transfer limit per month.
 
 ##### What about higher volume usage?
 
-Users who wish to exceed the above-mentioned free limits, should become a "Sponsor" contributing the equivalent of 50c per month to our Bitcoin wallet: 1Djf7wqB7jqBTWWMoLht9MhLeKBZEkDjS5. Sponsors' limits are bumped up to 30MB RAM (Redis) storage and 30Gb transfer per month. You can double up as needed.
+Users who wish to exceed the above-mentioned free limits, should become a "Sponsor" contributing the equivalent of 50c per month to our Bitcoin wallet: 1Djf7wqB7jqBTWWMoLht9MhLeKBZEkDjS5. Sponsors' limits are bumped up to 30MB RAM (Redis) storage and 30Gb transfer per month. You can double up as needed and contribute accordingly.
+
+##### What value length limits?
+
+We currently only support `GET` where the maximum URL length is 2083 characters, most of which can be the value. So value strings and JSON documents are limited to around 2050 characters when URL encoded, which is quite limited for JSON documents.
+
+Later we will support `POST` for `set, hset` et al, and thereby enable larger document limits.
 
 ##### Why Telegram.org?
 
