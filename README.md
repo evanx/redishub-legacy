@@ -103,12 +103,11 @@ User stories:
 Potential uses of keyspaces:
 - serverless backend database
 - storing encrypted data
-- public/private online message hub
+- public/shared/private online message hub
 - centralised logging, monitoring and alerting purposes
-- aggregated analytics
+- aggregated analytics 
 
 Future user stories:
-- encrypted keys (using client cert)
 - Manage the account admins and users
 - Manage access to keyspaces
 - Group/classify keyspaces for access control purposes
@@ -130,7 +129,6 @@ Redishub lambdas are special ES2016 scripts that use keyspaces for:
 Related specification: https://github.com/evanx/component-validator
 
 
-
 ### Related
 
 See: https://github.com/evanx/rquery
@@ -140,6 +138,7 @@ Notable features (June 2016):
 - Identity verification via Telegram.org chat bot `@redishub_bot`
 - Access secured via client-authenticated SSL (secure.redishub.com)
 - Generate tokens for Google Authenticator
+- Encrypt keys using client cert
 
 ### Documentation
 
