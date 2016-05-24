@@ -1,0 +1,6 @@
+[submodule "rhlib"]
+	path = rhlib
+	url = git@github.com:evanx/rhlib.git
+[submodule "rquery"]
+	path = rquery
+	url = git@github.com:evanx/rquery.git

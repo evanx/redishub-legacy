@@ -1,7 +1,7 @@
 
 ## redishub.com
 
-Try: https://demo.redishub.com/register-expire
+Try: https://demo.redishub.com/register-ephemeral
 
 Note that this endpoint returns JSON, so you'll want a JSON viewer extension installed in your browser otherwise it's pretty unusable.
 
