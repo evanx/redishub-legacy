@@ -19,15 +19,15 @@ UNSTABLE, INCOMPLETE
 
 ##### What is RedisHub?
 
-It is envisaged as online hub of Redis keyspaces accessed via HTTPS. These can be private, public or shared. We support various Redis commands for lists, sets etc, although not all yet. I plan to upgrade to latest Redis 3.2, and support GEO commands soon.
+It is envisaged as online hub of Redis keyspaces accessed via HTTPS. These can be private, public or shared. We support various Redis commands for lists, sets etc, although not all yet. I plan to upgrade to Redis 3.2 to support GEO commands soon.
 
-RedisHub is intended as a free serverless database for some low-volume use cases e.g. 30Mb RAM and 10 QPS, for ephemeral data e.g. expiring from RAM if not accessed for some minutes or days.
+RedisHub is intended as a free serverless database for some low-volume use cases, with data expiring from RAM if not accessed for some minutes or days.
 
 Currently, ephemeral keyspaces are created with a randomly generated name, which you can keep secret, or share.
 
 Private keyspaces can be created. They are secured using self-signed client certificates e.g. generated using `openssl.`
 
-Work is underway for role-based keyspace access control. Also potentially useful are "append only" keyspaces, where new data can be added by external actors, but existing data cannot deleted or modified except by account admins.
+Work is underway for role-based keyspace access control. Another upcoming feature is "append only" keyspaces, where new data can be added by external actors, but existing data cannot deleted or modified except by account admins.
 
 ##### Why do keys expire after 10 minutes?
 
@@ -35,9 +35,11 @@ Authenticated accounts have a longer default expiry, currently 10 days. The plan
 
 ##### Who is RedisHub?
 
+I'm a web developer based in Cape Town, working on content sites for a news publisher, using Nginx, Node, React and Redis. In my spare time, I work on my Github projects. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. I'm also fond of bash shell programming.
+
 RedisHub is my pet R&D project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
 
-I'm a web developer based in Cape Town, working on content sites for a news publisher, using Nginx, Node, React and Redis. In my spare time, I work on my Github projects. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. I'm also fond of bash shell programming. Find me at https://twitter.com/@evanxsummers.
+Find me at https://twitter.com/@evanxsummers.
 
 ##### What technology is behind a RedisHub keyspace?
 
