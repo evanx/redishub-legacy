@@ -21,7 +21,7 @@ UNSTABLE, INCOMPLETE
 
 It is envisaged as online hub of Redis keyspaces accessed via HTTPS. These can be private, public or shared. We support various Redis commands for lists, sets etc, although not all yet. I plan to upgrade to latest Redis 3.2, and support GEO commands soon.
 
-RedisHub can used as a serverless database for some low-volume use cases e.g. less than 100 QPS, and currently for ephemeral data e.g. expiring from RAM if not accessed for some minutes or days.
+RedisHub can used as a serverless database for some low-volume use cases e.g. less than 50 QPS, and currently for ephemeral data e.g. expiring from RAM if not accessed for some minutes or days.
 
 Currently, ephemeral keyspaces are created with a randomly generated name, which you can keep secret, or share.
 
