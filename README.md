@@ -21,7 +21,7 @@ UNSTABLE, INCOMPLETE
 
 It is envisaged as online hub of Redis keyspaces accessed via HTTPS. These can be private, public or shared. We support various Redis commands for lists, sets etc, although not all yet. I plan to upgrade to latest Redis 3.2, and support GEO commands soon.
 
-RedisHub can used as a serverless database for some low-volume use cases e.g. less than 50 QPS, and currently for ephemeral data e.g. expiring from RAM if not accessed for some minutes or days.
+RedisHub is intended as a free serverless database for some low-volume use cases e.g. 30Mb RAM and 10 QPS, for ephemeral data e.g. expiring from RAM if not accessed for some minutes or days.
 
 Currently, ephemeral keyspaces are created with a randomly generated name, which you can keep secret, or share.
 
@@ -99,9 +99,9 @@ Later we will support `POST` for `set, hset` et al, and thereby enable larger do
 
 ##### How to register an account
 
-Initially, in order to focus on back end, I haven't yet built a web site with signup, signin with Github, etc. Nevertheless one must be able to identify and alert users for operational reasons, e.g. send a monthly usage report.
+I haven't yet built a typical SaaS web site with signup, signin with Github, etc. Nevertheless one must be able to identify and alert users for operational reasons, e.g. send a monthly usage report.
 
-Currently, your Telegram username is used for your private RedisHub account name,
+Currently, your Telegram username is used for your private RedisHub account name. See documentation: https://github.com/evanx/rquery.
 
 ##### Why Telegram.org?
 
