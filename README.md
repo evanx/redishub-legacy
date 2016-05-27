@@ -58,7 +58,7 @@ Atomicity, consistency, isolation and durability guarantees are those offered by
 As an former Java enterprise developer and PostgreSQL DBA, I'm not convinced that durability is fully achievable.
 One is always vulnerable to minor "disasters," the most common of which are application and configuration errors.
 
-We wish to support durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. However, I wish firstly to address content, messaging and analytics use cases, e.g. optionally trading off performance for database size using ssdb or ardb.
+Nevertheless, we wish to support maximally durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. However, I wish firstly to address content, messaging and analytics use cases, e.g. optionally trading off performance for database size using ssdb or ardb.
 
 ##### Why use a Redis database rather than SQL?
 
