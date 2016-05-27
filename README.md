@@ -53,7 +53,10 @@ Currently it is simply a multi-tenanted Redis instance on a 512Mb Digital Ocean 
 
 ##### What about ACID?
 
-Atomicity, consistency, isolation and durability guarantees are those offered by Redis. This is a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the rare event of a server crash, versus the heavy performance cost of a disk sync on every transaction.
+Atomicity, consistency, isolation and durability guarantees are those offered by Redis. This is a trade-off sacrificing absolute durability in favour of performance, e.g. potentially loosing a second's worth of transactions in the rare event of a server crash, versus the heavy performance cost of a disk sync on every transaction.
+
+As an former Java enterprise developer and PostgreSQL DBA, I'm not convinced that durability is fully achievable.
+One is always vulnerable to minor "disasters," the most common of which are application and configuration errors.
 
 We wish to support durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. However, I wish firstly to address content, messaging and analytics use cases, e.g. optionally trading off performance for database size using ssdb or ardb.
 
