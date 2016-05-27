@@ -49,7 +49,7 @@ RedisHub can be used at least as a "playground" for anyone to experiment with Re
 
 It is a deployment of my Node project: https://github.com/evanx/rquery.
 
-Currently it is simply a multi-tenanted Redis instance on a 512Mb Digital Ocean VM. The plan is to deploy a Redis Cluster on load-balanced dedicated servers e.g. with 64GB each. That is faster and easier than implementing auto-archiving, and within my budget.
+Currently it is simply a multi-tenanted Redis instance on a 512MB Digital Ocean VM. The plan is to deploy a Redis Cluster on load-balanced dedicated servers e.g. with 64GB each. That is faster and easier than implementing auto-archiving, and within my budget.
 
 ##### What about ACID?
 
