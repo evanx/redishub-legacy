@@ -57,7 +57,7 @@ Atomicity, consistency, isolation and durability guarantees are those offered by
 
 We wish to support maximally durable transactions since this is an important use case e.g. to record financial transactions using PostgreSQL. However, I wish firstly to address web content, messaging and analytics use cases, optionally trading off performance for database size using ssdb.io, or performance for durability using PostgreSQL.
 
-Incidently, as an former Java enterprise developer and PostgreSQL DBA for a SaaS application, I'm not convinced that durability is fully achievable.  One is always vulnerable to minor "disasters," the most common of which are application and configuration errors.
+Incidently, as an former PostgreSQL DBA for a SaaS application, I'm not convinced that absolute durability is as important as performance. One is always vulnerable to minor "disasters," the most common of which are application and configuration errors. Often application load necessitates tweaking RAID settings to boost performance at the cost of durability.
 
 ##### Why use a Redis database rather than SQL?
 
