@@ -35,17 +35,21 @@ Authenticated accounts have a longer default expiry, currently 10 days. The plan
 
 ##### Who is RedisHub?
 
-I'm a web developer based in Cape Town, working on content sites for a news publisher, using Nginx, Node, React and Redis. In my spare time, I work on my Github projects. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. I'm also fond of bash shell programming.
+I'm a web developer based in Cape Town, working on content sites for a news publisher, using Nginx, Node, React and Redis. In my spare time, I work on my Github projects. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. 
+
+Find me at https://twitter.com/@evanxsummers.
+
+##### Why are you doing this?
 
 RedisHub is my pet R&D project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
 
-Find me at https://twitter.com/@evanxsummers.
+RedisHub can be used at least as a "playground" for anyone to experiment with Redis commands, and so mission accomplished in that respect. However I'm now inspired to take it further.
 
 ##### What technology is behind a RedisHub keyspace?
 
 It is a deployment of my Node project: https://github.com/evanx/rquery.
 
-Currently it is simply a multi-tenanted Redis instance on a 512Mb Digital Ocean VM. The plan is deploy a Redis Cluster, complemented by a disk-based auto-archival solution e.g. via http://ssdb.io.
+Currently it is simply a multi-tenanted Redis instance on a 512Mb Digital Ocean VM. The plan is to deploy a Redis Cluster on load-balanced dedicated servers e.g. with 64GB each. That is faster and easier than implementing auto-archiving, and within my budget.
 
 ##### What about ACID?
 
