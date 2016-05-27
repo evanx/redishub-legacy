@@ -45,17 +45,17 @@ Find me at https://twitter.com/@evanxsummers.
 
 It is a deployment of my Node project: https://github.com/evanx/rquery.
 
-Currently it is simply a multi-tenanted Redis instance on a 512Mb Digital Ocean VM. Perhaps down the line, a Redis Cluster, complemented by a disk-based archival solution e.g. via http://ssdb.io.
-
-##### Why use a Redis database rather than SQL?
-
-Redis is a popular and awesome NoSQL database. It's in-memory and so really fast. It supports data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos. Having said that, I love SQL too and may use PostgreSQL for some transactional aspects of RedisHub.
+Currently it is simply a multi-tenanted Redis instance on a 512Mb Digital Ocean VM. The plan is deploy a Redis Cluster, complemented by a disk-based auto-archival solution e.g. via http://ssdb.io.
 
 ##### What about ACID?
 
 Atomicity, consistency, isolation and durability guarantees are those offered by Redis. This is a trade-off sacrificing performance in favour of durability, e.g. potentially loosing a second's worth of transactions in the rare event of a server crash, versus the heavy performance cost of a disk sync on every transaction.
 
 We wish to support durable transactions since this is an important use case e.g. to record financial transactions in ecommerce. However, I wish firstly to address content, messaging and analytics use cases, e.g. optionally trading off performance for database size using ssdb or ardb.
+
+##### Why use a Redis database rather than SQL?
+
+Redis is a popular and awesome NoSQL database. It's in-memory and so really fast. It supports data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos. Having said that, I love SQL too and may use PostgreSQL for some transactional aspects of RedisHub.
 
 ##### But isn't Redis just for caching?
 
@@ -65,11 +65,12 @@ Certainly Redis is the leading caching server. But actually Redis is an in-memor
 
 Actually RedisHub doesn't offer hosted Redis instances (yet).
 It addresses some use cases where an online serverless storage/messaging service is convenient.
-Perhaps I'll find it useful, and if so perhaps other Indie developers will too, although I should be under no allusions in that respect.
 
 ##### Will you ever offer a hosted Redis service?
 
-There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache, RedisLabs, OpenRedis and RedisGreen. I want to experiment with orchestrating Redis instances, clusters and replicas, to automate RedisHub itself. However I'm more interested in other things e.g. supporting serverless lamdbas, than Redis hosting per se.
+There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache, RedisLabs, OpenRedis and RedisGreen. 
+
+I wish to experiment with orchestrating Redis instances, clusters and replicas, to automate RedisHub itself. However I'm more interested in other things e.g. auto-archival and supporting serverless lamdbas, than Redis hosting per se.
 
 ##### What are RedisHub lambdas?
 
@@ -91,7 +92,7 @@ I want to offer a free public utility in perpetuity to support most low-volume u
 
 ##### What about higher volume usage?
 
-Users who wish to exceed the above-mentioned free limits, should become a "Sponsor" contributing the equivalent of 50c per month to our Bitcoin wallet: 1Djf7wqB7jqBTWWMoLht9MhLeKBZEkDjS5. Sponsors' limits are bumped up to 30MB RAM (Redis) storage and 30Gb transfer per month. You can double up as needed and contribute accordingly.
+Users who wish to exceed the above-mentioned free limits, should become a "Sponsor" contributing the equivalent of 50c per month to our Bitcoin wallet: 1Djf7wqB7jqBTWWMoLht9MhLeKBZEkDjS5. Sponsors' limits are bumped up to 50MB RAM (Redis) storage and 50Gb transfer per month. You can double up as needed and contribute accordingly, e.g. $5 for 300MB, $50 for 3GB.
 
 ##### What value length limits?
 
