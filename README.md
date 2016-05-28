@@ -100,25 +100,25 @@ Medium-term deployment plans:
 
 ##### Why does the site redirect to this Github page?
 
-Currently all HTTP requests are redirected, the home page, and some other pages e.g. `/about.`
+Currently all HTTP requests are redirected, and some HTTPS URLs, e.g. the home page and `/about.`
 
 I wanted to focus on client cert auth first, so no login/signup facility yet. 
 
-Having said that, you effectively can: 
+Having said that, you can: 
 - signup via Telegram.org to `@redishub_bot`
 - login your web browser using your self-signed client cert
 
 
 ##### How do I generate an RedisHub admin cert?
 
-You will Specify the authoritative Telegram.org username for the RedisHub account.
+You specify the authoritative Telegram.org username for the RedisHub account.
 
 You can try the following script:
 ```shell
 curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate.cert.sh | 
   bash -u /dev/stdin $telegramUser
 ```
-where you must substitute `$telegramUser` as used for the RedisHub account.
+where you must substitute `$telegramUser` for yours.
 
 Note that it will install some dependencies via `curl` piped into bash as follows:
 ```shell
@@ -215,7 +215,8 @@ Currently, your Telegram username is used for your private RedisHub account name
 
 I've always liked the sound of Telegram, e.g. their security and openness.
 Also I have a new Ubuntu phone, which has Telegram, but not others etc.
-Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. "Then we'll be millionares!" as Homer says ;)
+Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. 
+"Then we'll be millionares!" as Homer says ;)
 
 
 ### Goals
