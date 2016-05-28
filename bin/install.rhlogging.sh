@@ -5,6 +5,7 @@
 
   cmd="${1-}" # e.g. force
 
+  install=${home-~/.rhrequire}
   repo=${repo-'evanx/redishub'}
   tree=${tree-'master'} # TODO 'stable' branch as default
 
@@ -13,8 +14,7 @@
   uri="$repo/tree/$tree"
   url="https://raw.githubusercontent.com/$repo/$tree"
 
-  home=~/.bashbin/ghrequire
-  dir=$home/$uri
+  dir=$install/$uri
   path=$dir/$file
 
   if [ "$cmd" != 'force' ] 
@@ -31,33 +31,19 @@
       echo "Try:"
       echo "$0 force"
       exit 3
-    else
-      echo "This script wants to:"
-      echo "- Create an evanx/bashbin dir including:"
-      echo "     $path"
-      echo "- Install logging utils therein from:"
-      echo "     https://github.com/$uri/$file"
-      echo "- Create other TTL dirs including the following in ~/.bashbin:"
-      echo "    ttl/minutes/1"
-      echo "    ttl/minutes/600"
-      echo "    ttl/days/1"
-      echo "    ttl/days/365"
-      echo "  These are intended to simplify tmp file creation"
-      echo "  and cleanup via cron e.g. using find -mmin and -mtime"
-      echo "Try:"
-      echo "$0 force"
-      exit 3
     fi
   fi
 
-  for days in 1 2 5 10 14 28 60 90 180 365
-  do
-    mkdir -p ~/.bash/ttl/days/$days
-  done
-  for minutes in 1 2 5 10 15 30 55 60 65 90 120 180 300 360 600
-  do
-    mkdir -p ~/.ash/ttl/minutes/$minutes
-  done
+  if [ -t 1 ] 
+  then 
+    echo "This script will:"
+    echo "- Create a $install dir including:"
+    echo "     $path"
+    echo "- Install logging utils therein from:"
+    echo "     https://github.com/$uri/$file"
+    echo "Press Ctrl-C to cancel, or Enter to confirm"
+    read _confirm
+  fi
 
   mkdir -p $dir 
   cd $dir

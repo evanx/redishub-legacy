@@ -108,15 +108,24 @@ Having said that, you effectively can:
 - signup via Telegram.org to `@redishub_bot`
 - login your web browser using your self-signed client cert
 
+
 ##### How do I generate an RedisHub admin cert?
 
 You will Specify the authoritative Telegram.org username for the RedisHub account.
 
 You can try the following script:
 ```shell
-  curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/install.rhlogging.sh | bash 
+
+```
+
+Note that it will install itself a dependency via `curl` piped into bash as follows.`
+```shell
+  [ -r ~/.rhrequire/evanx/redishub/tree/master/bin/rhlogging.sh ] ||
+    curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/install.rhlogging.sh |
+      installDir=~/.rhrequire bash
 ```
 where the default user and domain is taken as the current `$USER` and `hostname.`
+
 
 ##### How do I trust your server cert?
 
