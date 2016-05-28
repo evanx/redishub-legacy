@@ -29,9 +29,34 @@ Private keyspaces can be created. They are secured using self-signed client cert
 
 Work is underway for role-based keyspace access control. Another upcoming feature is "append only" keyspaces, where new data can be added by external actors, but existing data cannot deleted or modified except by account admins.
 
+
 ##### Why do keys expire after 10 minutes?
 
-Authenticated accounts have a longer default expiry, currently 10 days. The plan is to archive "cold" keys to disk, where their TTL relates to their presence in RAM. However this archival solution is currently vapourware. In the meantime, the TTL limits will be increased on request.
+Authenticated accounts have a longer default expiry, currently 10 days.
+
+The short-term plan is to enable the following features:
+- account admins can modify the default TTL of account keyspaces
+- authenticated clients can persist keys
+- archive values to disk
+- restore archived keys on-the-fly when accessed again
+
+Initially, we will provide a disk-based archive limited to:
+- strings i.e. values of keys
+- hashes keys 
+
+Later we will support archiving lists, sets, zsets and geos.
+
+We will publish the archive via CloudFlare on the domain `cf.redishub.com` so that:
+- the data that you make public can be served in volume by CloudFlare
+
+This means that data accessed from some region of the globe, will be cached there for 3 minutes, and served immediately by CloudFlare.
+
+Ideally the archive should be seamless, although read-only requests might be HTTP redirected to get unmodified data:
+- `archive.redishub.com` for unmodified data
+- `replica.redishub.com` for recently modified data
+
+Another plan is to develop a PostgreSQL-based back-end for Redis commands, if that doesn't already exist ;)
+
 
 ##### Who is RedisHub?
 
@@ -41,15 +66,78 @@ Find me at https://twitter.com/@evanxsummers.
 
 ##### Why are you doing this?
 
-RedisHub is my pet R&D project, to use my favourite toys, namely Redis, Node, React and ES2016, to explore security, servers, microservices, monitoring, logging, metrics and messaging.
+RedisHub is my pet R&D project, to build something cool with my favourite toys, and thereby explore security, devops, microservices, monitoring, logging, metrics and messaging.
 
-RedisHub can be used at least as a "playground" for anyone to experiment with Redis commands, and so mission accomplished in that respect. However I'm now inspired to take it further.
+RedisHub is already "mission accomplished" in the sense that it can be used as a "playground" for Redis commands, whilst also providing authenticated access to secure keyspaces for some professional use cases I have in mind. However I'm inspired to take it much further.
+
 
 ##### What technology is behind a RedisHub keyspace?
 
-It is a deployment of my Node project: https://github.com/evanx/rquery.
+It is a deployment of my Node project: https://github.com/evanx/rquery. We use Nginx. 
 
-Currently it is simply a multi-tenanted Redis instance on a 512MB Digital Ocean VM. The plan is to deploy a Redis Cluster on load-balanced dedicated servers e.g. with 64GB each. That is faster and easier than implementing auto-archiving, and within my budget.
+Currently it is simply a multi-tenanted Redis 2.8 instance on a Digital Ocean VM. 
+
+There are two production configurations: 
+- demo.redishub.com - playground with short TTLs
+- secure.redishub.com - client SSL auth, account admin, longer TTLs
+
+For convenience other domains are provided for the "secure" server:
+- cli.redishub.com - for command-line access, so responses are `text/plain` by default
+- json.redishub.com - response content always `application/javascript` 
+
+See: https://github.com/evanx/rquery/tree/master/config
+
+Short-term deployment plans:
+- `hot.redishub.com` VM for hot standby via a Redis replica.
+- `warm.redishub.com` for read-only authenticated access to warm data
+- `data.redishub.com` for read-only queries to "hub" warm data via CloudFlare CDN
+
+Note that clients should follow HTTP redirects to the above domains when reading data.
+
+Medium-term deployment plans:
+- a Redis Cluster on load-balanced dedicated servers with 64GB each. 
+
+
+##### Why does the site redirect to this Github page?
+
+Currently all HTTP requests are redirected, the home page, and some other pages e.g. `/about.`
+
+I wanted to focus on client cert auth first, so no login/signup facility yet. 
+
+Having said that, you effectively can: 
+- signup via Telegram.org to `@redishub_bot`
+- login your web browser using your self-signed client cert
+
+##### How do I generate an RedisHub admin cert?
+
+You will Specify the authoritative Telegram.org username for the RedisHub account.
+
+You can try the following script:
+```shell
+  bash -x 
+```
+where the default user and domain is taken as the current `$USER` and `hostname.`
+
+##### How do I trust your server cert?
+
+Our domains are secured via Let's Encrypt:
+```shell 
+echo -n | openssl s_client \
+  -connect cli.redishub.com:443 2>/dev/null | grep '^Cert' -A2
+```
+```shell
+Certificate chain
+ 0 s:/CN=secure.redishub.com
+   i:/C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+```
+
+Some systems have an outdated "CA certs" file which does not include Let's Encrypt cert. 
+
+We can support only clients that trust Let's Encrypt, explicity if not by default:
+```shell
+$ curl --cacert ~/.cacerts/letsencrypt/isrgrootx1.pem.txt https://cli.redishub.com/time/seconds
+1464377206
+```
 
 ##### What about ACID?
 

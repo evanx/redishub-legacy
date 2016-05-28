@@ -4,3 +4,6 @@
 [submodule "rquery"]
 	path = rquery
 	url = git@github.com:evanx/rquery.git
+[submodule "redis-scan-bash"]
+	path = redis-scan-bash
+	url = git@github.com:evanx/redis-scan-bash.git
