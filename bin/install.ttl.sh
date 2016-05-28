@@ -15,8 +15,6 @@
     echo "  ttl/days/365"
     echo "These are intended to simplify tmp file creation by other scripts"
     echo "and facilitate their cleanup via cron e.g. using find -mmin and -mtime"
-    echo "Press Ctrl-C to abort or Enter to confirm"
-    read _confirm
   fi
 
   days='1 2 3 4 5 6 7 8 9 10 14 28 60 90 180 365'

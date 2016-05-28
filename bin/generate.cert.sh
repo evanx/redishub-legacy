@@ -12,11 +12,11 @@
   }
 
   rhrequire ~/.rhrequire/evanx/redishub/tree/master/bin/rhlogging.sh rhlogging
-  rhrequire ~/.bashbin/ttl/days/7 ttl
+  rhrequire ~/.bashbin/ttl/days/14 ttl
 
   . ~/.rhrequire/evanx/redishub/tree/master/bin/rhlogging.sh 
 
-  [ $# -eq 1 ] || rhabort ENV "Usage: <telegramUser> (authoritative telegram.org user name for RedisHub account)"
+  [ $# -ge 1 ] || rhabort ENV "Usage: <telegramUser> (authoritative telegram.org user name for RedisHub account)"
 
   debugWarning='Debugging present (remove before committing)'
   cat $0 | grep 'Z[Z]' && rhwarning "$debugWarning"
@@ -31,8 +31,8 @@
   user=$USER # the user id on the host/domain
   role='admin' # the RedhisHub role this user/cert
 
-  tmp=~/.bashbin/days/7/`basename $0/$$`
-  mkdir $tmp && cd $tmp && rhinfo `pwd`
+  tmp=~/.bashbin/days/14/$thisName/$$
+  mkdir -p $tmp && cd $tmp && rhinfo `pwd`
 
   CN="$user@$domain"
   OU="$role%$account@redishub.com"
@@ -42,7 +42,7 @@
     -keyout privkey.pem -out cert.pem
   cat privkey.pem cert.pem > privcert.pem
 
-  prefix=$role-$user@$domain-$account@redishub
+  prefix=$user.$domain%$role%$account.redishub
   cp privcert.pem $prefix.privcert.pem
   ls -l $prefix.privcert.pem
   rhinfo "Try:"
@@ -51,16 +51,16 @@
 
   if [ -d ~/.redishub/live ]
   then
-    if [ "${1-}" = 'force' ]
+    if [[ "${2:-}" =~ force ]]
     then
       timestamp=`date +%s`
-      archive=~/.bashbin/ttl/days/7/$thisName/live/$timestamp
+      archive=~/.bashbin/ttl/days/30/$thisName/archive/live/$timestamp
       echo "Archiving ~/.redishhub/live et al to $archive"
       mkdir -p $archive
       ls -l ~/.redishub/live
       mv ~/.redishub/live/* $archive
     else
-      rhabort ENV "Try param 'force' to overwrite existing ~/.redishub/live PEM files"
+      rhabort ENV "Try second param 'force' to overwrite existing ~/.redishub/live PEM files"
     fi
   else
     mkdir -p ~/.redishub/live
@@ -70,5 +70,6 @@
   [ ! -f privcert.pem ] || rhabort APP "Exists: ~/.redishub/privcert.pem"
   [ ! -f account ] || rhabort APP "Exists: ~/.redishub/privcert.pem"
   echo "$account" > account
-  rhinfo `GenerateCert` `cat account` $CN/OU=$OU ~/.redishub/privcert.pem OK
+  cp -i $tmp/* .
+  rhinfo 'GenerateCert' `cat account` CN=$CN/OU=$OU ~/.redishub/privcert.pem 'OK'
 
