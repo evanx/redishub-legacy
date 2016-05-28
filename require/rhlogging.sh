@@ -5,16 +5,15 @@
 
   cmd="${1-}" # e.g. force
 
-  install=${home-~/.require}
+  install=${home-~/.require/gh}
   repo=${repo-'evanx/redishub'}
   tree=${tree-'master'} # TODO 'stable' branch as default
 
   file=${file-'bin/rhlogging.sh'}
 
-  uri="$repo/tree/$tree"
   url="https://raw.githubusercontent.com/$repo/$tree"
 
-  dir=$install/$uri
+  dir=$install/$repo/$tree
   path=$dir/$file
 
   if [ "$cmd" != 'force' ] 
@@ -36,7 +35,7 @@
   echo "- Create a $install dir including:"
   echo "     $path"
   echo "- Install logging utils therein from:"
-  echo "     https://github.com/$uri/$file"
+  echo "     https://github.com/$repo/tree/$tree/$file"
 
   if [ -t 1 ] 
   then 
