@@ -5,7 +5,7 @@
 
   cmd="${1-}" # e.g. force
 
-  install=${home-~/.rhrequire}
+  install=${home-~/.require}
   repo=${repo-'evanx/redishub'}
   tree=${tree-'master'} # TODO 'stable' branch as default
 

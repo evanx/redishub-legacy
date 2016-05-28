@@ -3,18 +3,20 @@
 
   thisName=`basename $0 .sh`
 
-  rhrequire() {
-    file=$1
-    install=$2
-    [ -r $file ] ||
-      curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/install.$install.sh | # TODO from master to stable
-        bash /dev/stdin force
+  tree=master # TODO from master to stable
+
+  require() {
+    for require in "$@"
+    do
+      [ -f ~/.require/evanx/redishub/tree/$tree/require/$require.sh ] || 
+        curl -s https://raw.githubusercontent.com/evanx/redishub/$tree/require/$require.sh | 
+          bash /dev/stdin force
+    done
   }
 
-  rhrequire ~/.rhrequire/evanx/redishub/tree/master/bin/rhlogging.sh rhlogging
-  rhrequire ~/.bashbin/ttl/days/14 ttl
+  require rhlogging ttl
 
-  . ~/.rhrequire/evanx/redishub/tree/master/bin/rhlogging.sh 
+  . ~/.require/evanx/redishub/tree/$tree/bin/rhlogging.sh
 
   [ $# -ge 1 ] || rhabort ENV "Usage: <telegramUser> (authoritative telegram.org user name for RedisHub account)"
 
