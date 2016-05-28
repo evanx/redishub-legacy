@@ -22,14 +22,12 @@
     if [ -f $path ] 
     then
       >&2 echo "Already exists: $path"
-      echo "Try:"
-      echo "$0 force"
+      echo "Try command parameter: 'force'"
       exit 3
     elif [ ! -t 1 ]
     then
       echo "Missing $path"
-      echo "Try:"
-      echo "$0 force"
+      echo "Try command parameter: 'force'"
       exit 3
     fi
   fi

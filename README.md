@@ -124,7 +124,7 @@ Note that it will install some dependencies via `curl` piped into bash as follow
 ```shell
   [ -r ~/.rhrequire/evanx/redishub/tree/master/bin/rhlogging.sh ] ||
     curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/install.rhlogging.sh |
-      installDir=~/.rhrequire bash
+      install=~/.rhrequire bash
 ```
 where the default user and domain is taken as the current `$USER` and `hostname.`
 
