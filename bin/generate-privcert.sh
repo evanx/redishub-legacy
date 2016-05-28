@@ -72,6 +72,6 @@
   echo account `cat account`
   rhinfo "openssl x509 -text -in ~/.redishub/live/privcert.pem | grep 'CN='"
   openssl x509 -text -in ~/.redishub/live/privcert.pem | grep 'CN='
-  rhinfo 'Generated cert:' ~/.redishub/privcert.pem 'OK'
+  rhinfo 'Generated cert:' ~/.redishub/live/privcert.pem 'OK'
 
 
