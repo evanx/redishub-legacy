@@ -34,13 +34,14 @@
     fi
   fi
 
+  echo "This script will:"
+  echo "- Create a $install dir including:"
+  echo "     $path"
+  echo "- Install logging utils therein from:"
+  echo "     https://github.com/$uri/$file"
+
   if [ -t 1 ] 
   then 
-    echo "This script will:"
-    echo "- Create a $install dir including:"
-    echo "     $path"
-    echo "- Install logging utils therein from:"
-    echo "     https://github.com/$uri/$file"
     echo "Press Ctrl-C to cancel, or Enter to confirm"
     read _confirm
   fi

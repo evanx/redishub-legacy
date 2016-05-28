@@ -19,16 +19,16 @@
     read _confirm
   fi
 
-  for days in 1 2 5 10 14 28 60 90 180 365
+  days='1 2 3 4 5 6 7 8 9 10 14 28 60 90 180 365'
+  for day in $days
   do
-    mkdir -p $install/ttl/days/$days
+    mkdir -p $install/ttl/days/$day
   done
 
-  for minutes in 1 2 5 10 15 30 55 60 65 90 120 180 300 360 600
+  minutes='1 2 3 4 5 10 15 30 55 60 65 90 120 180 300 360 600'
+  for minute in $minutes
   do
-    mkdir -p $install/ttl/minutes/$minutes
+    mkdir -p $install/ttl/minutes/$minute
   done
 
-  echo; echo "$install"
-  ls -l $install/ttl/*
   echo "Installed $install OK"

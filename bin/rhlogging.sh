@@ -82,16 +82,17 @@ rhsub() {
 # example: rhabort 1 @$LINENO "error message" $some
 # specify 1 (default) to limit 254. 
 # Ideally use 3..63 for custom codes
+# We use 3 for ENV errors (a catchall for system/dep/env), 4 for subsequent APP errors
 # returns nonzero code e.g. for scripts with set -e 
 rhabort() {
   local code=3
   local lineno=''
   if [ $# -gt 0 ]
   then
-    if [ "$1" = 'SETUP' ]
-    then
-       code=3
-    elif echo "$1" | grep -q '^[0-9]'
+    [ "$1" = 'ENV' ] && code=3
+    [ "$1" = 'PARAM' ] && code=4
+    [ "$1" = 'APP' ] && code=5
+    if echo "$1" | grep -q '^[0-9]'
     then
       code=$1
       if shift
@@ -106,7 +107,9 @@ rhabort() {
     fi
   fi
   local errorName=''
-  [ $code -eq 3 ] && errorName=SETUP
+  [ $code -eq 3 ] && errorName='ENV'
+  [ $code -eq 4 ] && errorName='PARAM'
+  [ $code -eq 5 ] && errorName='APP'
   if [ $# -gt 0 ]
   then
     if echo "$1" | grep -q 'Try: '
