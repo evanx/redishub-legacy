@@ -120,14 +120,6 @@ curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate-pri
 ```
 where you must substitute `$telegramUser` for yours.
 
-Note that it will install some dependencies via `curl` piped into bash as follows:
-```shell
-  [ -r ~/.rhrequire/evanx/redishub/tree/master/bin/rhlogging.sh ] ||
-    curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/install.rhlogging.sh |
-      install=~/.rhrequire bash
-```
-where the default user and domain is taken as the current `$USER` and `hostname.`
-
 
 ##### How do I trust your server cert?
 
