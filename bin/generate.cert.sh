@@ -3,38 +3,10 @@
 
   thisName=`basename $0 .sh`
 
-  requireLibVersion='master' # TODO tag
+  [ -r ~/.bashbin/ghrequire/evanx/redishub/tree/master/bin/rhlogging.sh ] ||
+    curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/install.rhlogging.sh | 
+      bash /dev/stdin force
 
-  requireLibRepo='evanx/redishub'
-  requireLibFile='bin/rhlogging.sh'
-
-  requireLibUri="$requireLibRepo/tree/$libVersion/$requireLibFile"
-  requireLibUrl="https://raw.githubusercontent.com/$requireLibUri"
-
-  tmpl=~/.ttl.forever/$thisName/$requireLibVersion
-  if [ ! -d $tmpl ] 
-  then
-    if [ ! -t 1 ]
-    then
-      echo "Missing $tmpl"
-      exit 3
-    fi
-    echo "This script wants to create a working dir: $tmpl"
-    echo "and install logging utils therein from:"
-    echo "https://github.com/$requiredLibUri"
-    echo "Press Ctrl-C to abort, or Enter to continue" 
-    read _confirm 
-    mkdir $tmpl && cd $tmpl && pwd
-    mkdir -p `dirname $requireLibFile`
-    curl $requireLibUrl -o $requireLibFile
-    ls -l $requireLibFile 
-    sha1sum $requireLibFile | tee $requireLibFile.fimhook.sha1sum
-  else
-    cd $tmpl
-  fi
-  
-  . 
- 
   debugWarning='Debugging present (remove before committing)'
   cat $0 | grep 'Z[Z]' && rhwarn "$debugWarning"
 

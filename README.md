@@ -114,7 +114,7 @@ You will Specify the authoritative Telegram.org username for the RedisHub accoun
 
 You can try the following script:
 ```shell
-  bash -x 
+  curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/install.rhlogging.sh | bash 
 ```
 where the default user and domain is taken as the current `$USER` and `hostname.`
 
