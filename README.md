@@ -115,8 +115,8 @@ You specify the authoritative Telegram.org username for the RedisHub account.
 
 You can try the following script:
 ```shell
-curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate.cert.sh | 
-  bash -u /dev/stdin $telegramUser
+curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate-privcert.sh | 
+  bash /dev/stdin $telegramUser
 ```
 where you must substitute `$telegramUser` for yours.
 
