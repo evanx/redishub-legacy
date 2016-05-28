@@ -115,10 +115,12 @@ You will Specify the authoritative Telegram.org username for the RedisHub accoun
 
 You can try the following script:
 ```shell
-
+curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate.cert.sh | 
+  bash -u /dev/stdin $telegramUser
 ```
+where you must substitute `$telegramUser` as used for the RedisHub account.
 
-Note that it will install itself a dependency via `curl` piped into bash as follows.`
+Note that it will install some dependencies via `curl` piped into bash as follows:
 ```shell
   [ -r ~/.rhrequire/evanx/redishub/tree/master/bin/rhlogging.sh ] ||
     curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/install.rhlogging.sh |
