@@ -11,9 +11,11 @@
   file=${file-'bin/rhlogging.sh'}
 
   uri="$repo/tree/$tree"
-  url="https://raw.githubusercontent.com/$uri"
+  url="https://raw.githubusercontent.com/$repo/$tree"
 
-  path=~/.bashbin/require/$uri/$file
+  home=~/.ghbash/require
+  dir=$home/$uri
+  path=$dir/$file
 
   if [ "$cmd" != 'force' ] 
   then
@@ -34,7 +36,7 @@
       echo "- Create an evanx/bashbin dir including:"
       echo "     $path"
       echo "- Install logging utils therein from:"
-      echo "     https://github.com/$uri"
+      echo "     https://github.com/$uri/$file"
       echo "- Create other TTL dirs including:"
       echo "    ~/.bashbin/ttl/minutes/1"
       echo "    ~/.bashbin/ttl/minutes/600"
@@ -42,8 +44,9 @@
       echo "    ~/.bashbin/ttl/days/365"
       echo "  These are intended to simplify tmp file creation"
       echo "  and cleanup via cron e.g. using find -mmin and -mtime"
-      echo "Press Ctrl-C to abort, or Enter to continue" 
-      read _confirm 
+      echo "Try:"
+      echo "$0 force"
+      exit 3
     fi
   fi
 
@@ -56,10 +59,13 @@
     mkdir -p ~/.bashbin/ttl/minutes/$minutes
   done
 
-  dir=`dirname $path`
   mkdir -p $dir 
   cd $dir
   pwd
+  fileDir=`dirname $file`
+  mkdir -p $fileDir
+  mkdir -p $fileDir
+  ls -l 
   >&2 echo "curl -s $url/$file -o $file"
   if ! curl -s $url/$file -o $file
   then
@@ -67,9 +73,9 @@
     exit 4 
   fi
   ls -l $file 
-  sha1sum $file | tee $file.fimhook.sha1sum
+  sha1sum $file | tee $file.`date +%Y%m%d`.sha1sum
   echo "$url" `cat $file.fimhook.sha1sum` 'OK'
 
-  pwd
-  echo "bash $file"
-  bash $file
+  . $file 
+  rhinfo `pwd`
+  rhinfo "Installed $file OK"
