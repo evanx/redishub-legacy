@@ -38,13 +38,12 @@
     -subj "/CN=$CN/OU=$OU" \
     -keyout privkey.pem -out cert.pem
   cat privkey.pem cert.pem > privcert.pem
+  openssl x509 -text -in privcert.pem | grep 'CN='
 
-  prefix=$role.$account.$user.$domain
+  dt=`date +'%Y%m%d'`
+  prefix=$role.$account.$user.$domain.$dt
   cp privcert.pem $prefix.privcert.pem
   ls -l $prefix.privcert.pem
-  rhinfo "Try:"
-  rhinfo "openssl x509 -text -in `pwd`/$prefix.privcert.pem | grep 'CN='"
-  openssl x509 -text -in $prefix.privcert.pem | grep 'CN='
 
   if [ -d ~/.redishub/live ]
   then
@@ -68,5 +67,11 @@
   [ ! -f account ] || rhabort APP "Exists: ~/.redishub/privcert.pem"
   echo "$account" > account
   cp -i $tmp/* .
-  rhinfo 'GenerateCert' `cat account` CN=$CN/OU=$OU ~/.redishub/privcert.pem 'OK'
+  pwd
+  ls -l
+  echo account `cat account`
+  rhinfo "openssl x509 -text -in ~/.redishub/live/privcert.pem | grep 'CN='"
+  openssl x509 -text -in ~/.redishub/live/privcert.pem | grep 'CN='
+  rhinfo 'Generated cert:' ~/.redishub/privcert.pem 'OK'
+
 
