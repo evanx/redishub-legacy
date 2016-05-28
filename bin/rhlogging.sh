@@ -78,6 +78,10 @@ rhsub() {
   rhinfo "$@"
 }
 
+declare -A ErrorCodes=( 
+  [GENERAL]=1 [ENV]=3 [PARAM]=4 [APP]=5 
+)
+
 # command: rhabort $code $*
 # example: rhabort 1 @$LINENO "error message" $some
 # specify 1 (default) to limit 254. 
@@ -85,31 +89,33 @@ rhsub() {
 # We use 3 for ENV errors (a catchall for system/dep/env), 4 for subsequent APP errors
 # returns nonzero code e.g. for scripts with set -e 
 rhabort() {
-  local code=3
-  local lineno=''
+  local code=1
   if [ $# -gt 0 ]
   then
-    [ "$1" = 'ENV' ] && code=3
-    [ "$1" = 'PARAM' ] && code=4
-    [ "$1" = 'APP' ] && code=5
-    if echo "$1" | grep -q '^[0-9]'
+    if echo "$1" | grep -q '^[A-Z]\S*$'
+    then
+      local errorCode="${ErrorCodes[$1]}"
+      rhdebug errorCode $1 $errorCode 
+      if [ "$errorCode" -gt 0 ]
+      then
+        code=$errorCode
+        shift
+      fi
+    elif echo "$1" | grep -q '^[0-9][0-9]*$'
     then
       code=$1
-      if shift
-      then
-        if echo "$1" | grep -q '^[0-9][0-9]*$'
-        then
-          lineno=$1
-          rhdebug "Abort line number: $lineno"
-          shift
-        fi 
-      fi
+      shift
     fi
   fi
-  local errorName=''
-  [ $code -eq 3 ] && errorName='ENV'
-  [ $code -eq 4 ] && errorName='PARAM'
-  [ $code -eq 5 ] && errorName='APP'
+  for key in "${!ErrorCodes[@]}"
+  do
+    local value=${ErrorCodes[$key]}
+    if [ $value -eq $code ]
+    then
+      errorName="$key"
+      break
+    fi
+  done
   if [ $# -gt 0 ]
   then
     if echo "$1" | grep -q 'Try: '
@@ -119,8 +125,13 @@ rhabort() {
       shift
     fi
   fi
-  rherror "Aborting. Reason: [${*}] (code $code [$errorName])"
-  [ $code -eq 0 ] && return 1
-  [ $code -ge 255 ] && code=254
+  rherror "Aborting. Reason: ${*} (code $code $errorName)"
+  if [ $code -le 0 ]
+  then
+    code=1
+  elif [ $code -ge 255 ]
+  then
+    code=254
+  fi
   return $code
 }
