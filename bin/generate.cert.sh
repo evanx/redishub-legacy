@@ -18,8 +18,6 @@
 
   [ $# -ge 1 ] || rhabort ENV "Usage: <telegramUser> (authoritative telegram.org user name for RedisHub account)"
 
-  cat $0 | grep 'TODO' || true
-
   service=${service-redishub.com}
   telegramUser=${1-''} # the authoritative Telegram.org user
   echo "$telegramUser" | grep -q '^[a-z]\S*$' || rhabort PARAM 'Invalid account name' 
