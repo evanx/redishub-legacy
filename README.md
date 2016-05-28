@@ -150,6 +150,8 @@ $ curl --cacert ~/.cacerts/letsencrypt/isrgrootx1.pem.txt https://cli.redishub.c
 1464377206
 ```
 
+See: https://letsencrypt.org/2015/06/04/isrg-ca-certs.html
+
 ##### What about ACID?
 
 Atomicity, consistency, isolation and durability guarantees are those offered by Redis. This is a trade-off sacrificing absolute durability in favour of performance, e.g. potentially loosing a second's worth of transactions in the rare event of a server crash, versus the heavy performance cost of a disk sync on every transaction.
