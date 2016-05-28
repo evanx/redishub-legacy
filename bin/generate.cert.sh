@@ -42,7 +42,7 @@
     -keyout privkey.pem -out cert.pem
   cat privkey.pem cert.pem > privcert.pem
 
-  prefix=$user.$domain%$role%$account.redishub
+  prefix=$role.$account.$user.$domain
   cp privcert.pem $prefix.privcert.pem
   ls -l $prefix.privcert.pem
   rhinfo "Try:"
