@@ -17,7 +17,7 @@ UNSTABLE, INCOMPLETE
 
 ### FAQ
 
-##### What is RedisHub?
+#### What is RedisHub?
 
 It is envisaged as online hub of Redis keyspaces accessed via HTTPS. These can be private, public or shared. We support various Redis commands for lists, sets etc, although not all (yet).
 
@@ -27,14 +27,49 @@ Currently, ephemeral keyspaces are created with a randomly generated name, which
 
 Private keyspaces can be created. They are secured using self-signed client certificates e.g. generated using `openssl.`
 
+#### What are the limits? 
 
-##### What upcoming features? 
+The following account types:
+- hub - unathenticated public/secret ephemeral keyspaces
+- secure - client cert authenticated keyspaces
+- founder - has made a virtual currency transfer to a "RedisHub Founders" wallet
 
-###### Role-based keyspace access control
+These different account types have different service usage limits, e.g. in terms of keyspace TTLs.
+
+#### What is the "founders" virtual currency address
+
+It is a virtual currency account where senders automatically become "founders" who together own RedisHub.
+
+Their shareholding will be determined by computational analysis of the time series of:
+- your actual usage costs
+- your transfers 
+
+I will be the original founder in the Bitcoin wallet and Ethereum wallet. The algorithm should be such that:
+- the second founder initially owns 49%
+- the 10th founder initially owns 5%
+- the 50th founder initially owns 1%
+
+#### Why the "Founders" ownship
+
+- it's a low cost transparent way to manage costs and payments
+- it's an interesting experiment 
+- early adopters are critical to success, so reward that
+- the real value of any business is its customers
+- the idea of loyal customers being owners appeals to me
+
+#### What upcoming features? 
+
+##### HTTP POST
+
+##### Role-based keyspace access control
 
 Admins can control which certs (or the public) can access their keyspaces, and if read-only, or add-only.
 
-##### Why do keys expire after 10 minutes?
+##### Export and import to JSON
+
+Entire keyspaces can be exported as a JSON file, or imported or created from such.
+
+#### Why do keys expire after 10 minutes?
 
 Authenticated accounts have a longer default expiry, currently 10 days.
 
@@ -55,20 +90,19 @@ Ideally the archive should be seamless, although read-only requests might be HTT
 - `replica.redishub.com` for recently modified data
 
 
-##### Who is RedisHub?
+#### Who is RedisHub?
 
 I'm a web developer based in Cape Town, working on content sites for a news publisher, using Nginx, Node, React and Redis. In my spare time, I work on my Github projects. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. 
 
 Find me at https://twitter.com/@evanxsummers.
 
-##### Why are you doing this?
+#### Why are you doing this?
 
 RedisHub is my pet R&D project, to build something cool with my favourite toys, and thereby explore security, devops, microservices, monitoring, logging, metrics and messaging.
 
 RedisHub is already "mission accomplished" in the sense that it can be used as a "playground" for Redis commands, whilst also providing authenticated access to secure keyspaces for some professional use cases I have in mind. However I'm inspired to take it further.
 
-
-##### What technology is behind a RedisHub keyspace?
+#### What technology is behind a RedisHub keyspace?
 
 It is a deployment of my Node project: https://github.com/evanx/rquery, using Nginx and Redis 2.8.
 
@@ -84,7 +118,7 @@ For convenience other domains are provided for the "secure" server:
 
 Short-term deployment plans:
 - `hot.redishub.com` VM for hot standby via a Redis replica.
-- `warm.redishub.com` for read-only authenticated access to warm data
+- `archive.redishub.com` for read-only authenticated access to warm data
 - `cdn.redishub.com` for read-only queries to "hub" warm data via CloudFlare CDN
 
 Note that clients should follow HTTP redirects to the above domains when reading data.
@@ -93,18 +127,18 @@ Medium-term deployment plans:
 - a Redis Cluster on load-balanced dedicated servers with 64GB each. 
 
 
-##### Why does the site redirect to this Github page?
+#### Why does the site redirect to this Github page?
 
-Currently all HTTP requests are redirected, and also the home page and `/about.`
+Currently all HTTP requests are redirected, and also some HTTPS ones, namely the home page and `/about.`
 
-Incidently, I wanted to focus on client cert auth first, rather so no webpage for login/signup yet. 
+I wished to focus on client cert auth first, so no webpage for login/signup yet. 
 
 Having said that, you can: 
 - signup via Telegram.org chat to `@redishub_bot`
 - login your web browser using your self-signed client cert
 
 
-##### How do I generate an RedisHub admin cert?
+#### How do I generate an RedisHub admin cert?
 
 You specify the authoritative Telegram.org username for the RedisHub account.
 
@@ -118,7 +152,7 @@ where you must substitute `$telegramUser` for yours.
 Soon `@redishub_bot` will assist with generating an client cert.
 
 
-##### How do I trust your server cert?
+#### How do I trust your server cert?
 
 Our domains are secured via Let's Encrypt:
 ```shell 
@@ -141,7 +175,7 @@ $ curl --cacert ~/.cacerts/letsencrypt/isrgrootx1.pem.txt https://cli.redishub.c
 
 See: https://letsencrypt.org/2015/06/04/isrg-ca-certs.html
 
-##### What about ACID?
+#### What about ACID?
 
 Atomicity, consistency, isolation and durability guarantees are those offered by Redis. This is a trade-off sacrificing absolute durability in favour of performance, e.g. potentially loosing a second's worth of transactions in the rare event of a server crash, versus the heavy performance cost of a disk sync on every transaction.
 
@@ -149,60 +183,60 @@ We wish to support maximally durable transactions since this is an important use
 
 Incidently, as an former PostgreSQL DBA for a SaaS application, I'm not convinced that absolute durability is as important as performance. One is always vulnerable to minor "disasters," the most common of which are application and configuration errors. Often application load necessitates tweaking RAID settings to boost performance at the cost of durability.
 
-##### Why use a Redis database rather than SQL?
+#### Why use a Redis database rather than SQL?
 
 Redis is a popular and awesome NoSQL database. It's in-memory and so really fast. It supports data structures which are well understood and pretty fundamental, e.g. sets, sorted sets, lists, hashes and geos. Having said that, I love SQL too and may use PostgreSQL for some transactional aspects of RedisHub.
 
-##### But isn't Redis just for caching?
+#### But isn't Redis just for caching?
 
 Certainly Redis is the leading caching server. But actually Redis is an in-memory "data structure server." As such, it has many use cases, including fast shareable data storage, analytics, geo-spatial processing, synchronisation, queuing and messaging.
 
-##### Why use a hosted Redis service rather than one's own?
+#### Why use a hosted Redis service rather than one's own?
 
 Actually RedisHub doesn't offer hosted Redis instances (yet).
 It addresses some use cases where an online serverless storage/messaging service is convenient.
 
-##### Will you ever offer a hosted Redis service?
+#### Will you ever offer a hosted Redis service?
 
 There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache, RedisLabs, OpenRedis and RedisGreen. 
 
 I wish to experiment with orchestrating Redis instances, clusters and replicas, to automate RedisHub itself. However I'm more interested in other things e.g. auto-archival and supporting serverless lamdbas, than Redis hosting per se.
 
-##### What are RedisHub lambdas?
+#### What are RedisHub lambdas?
 
 These are envisaged as Redis-based lambdas that can be composed into microservices and apps.
 I'm choosing to misdefine "lambdas" as server-side components which access one or more keyspaces.
 They must be stateless to enable auto-scaling, but can store private and shared state in Redis of course. They must be written using a specific ES2016 framework, to simplify orchestration and management, e.g. configuration, keyspace access, logging and metrics.
 
-##### How will RedisHub support its lambdas?
+#### How will RedisHub support its lambdas?
 
 The platform should handle identity, auth, configuration, deployment, logging, messaging, monitoring and scaling. A notable simplication is that Redis will be used across the board for all these concerns.
 
-##### Why would a developer use an indie service which might become abandonware?
+#### Why would a developer use an indie service which might become abandonware?
 
 That is a very good question. I guess it would have to be compelling for a specific niche, e.g. Telegram bots.
 
-##### What is free?
+#### What is free?
 
 I want to offer a free public utility in perpetuity to support most low-volume use cases, where the computing cost is less than 10c per user per month, e.g. peak database size of 10MB RAM with a 10Gb transfer limit per month.
 
-##### What about higher volume usage?
+#### What about higher volume usage?
 
 Users who wish to exceed the above-mentioned free limits, should become a "Sponsor" contributing the equivalent of 50c per month to our Bitcoin wallet: 1Djf7wqB7jqBTWWMoLht9MhLeKBZEkDjS5. Sponsors' limits are bumped up to 50MB RAM (Redis) storage and 50Gb transfer per month. You can double up as needed and contribute accordingly, e.g. $5 for 300MB, $50 for 3GB.
 
-##### What value length limits?
+#### What value length limits?
 
 We currently only support `GET` where the maximum URL length is 2083 characters, most of which can be the value. So value strings are limited to around 2050 characters when URL encoded, which is quite limited for JSON documents.
 
 Later we will support `POST` for `set, hset` et al, and thereby enable larger document limits.
 
-##### How to register an account
+#### How to register an account
 
 I haven't yet built a typical SaaS web site with signup, signin with Github, etc. Nevertheless one must be able to identify and alert users for operational reasons, e.g. send a monthly usage report.
 
 Currently, your Telegram username is used for your private RedisHub account name. See documentation: https://github.com/evanx/rquery.
 
-##### Why Telegram.org?
+#### Why Telegram.org?
 
 I've always liked the sound of Telegram, e.g. their security and openness.
 Also I have a new Ubuntu phone, which has Telegram, but not others etc.
