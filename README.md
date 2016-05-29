@@ -19,9 +19,9 @@ UNSTABLE, INCOMPLETE
 
 ##### What is RedisHub?
 
-It is envisaged as online hub of Redis keyspaces accessed via HTTPS. These can be private, public or shared. We support various Redis commands for lists, sets etc, although not all yet. I plan to upgrade to Redis 3.2 to support GEO commands soon.
+It is envisaged as online hub of Redis keyspaces accessed via HTTPS. These can be private, public or shared. We support various Redis commands for lists, sets etc, although not all (yet).
 
-RedisHub is intended as a free serverless database for some low-volume use cases, with data expiring from RAM if not accessed for some minutes or days.
+RedisHub is intended as a free serverless database for some low-volume use cases e.g. with data expiring from RAM if not accessed for some time.
 
 Currently, ephemeral keyspaces are created with a randomly generated name, which you can keep secret, or share.
 
@@ -37,8 +37,6 @@ Authenticated accounts have a longer default expiry, currently 10 days.
 The short-term plan is to enable the following features:
 - account admins can modify the default TTL of account keyspaces
 - authenticated clients can persist keys
-- archive values to disk
-- restore archived keys on-the-fly when accessed again
 
 Initially, we will provide a disk-based archive limited to:
 - strings i.e. values of keys
@@ -46,13 +44,13 @@ Initially, we will provide a disk-based archive limited to:
 
 Later we will support archiving lists, sets, zsets and geos.
 
-We will publish the archive via CloudFlare on the domain `cf.redishub.com` so that:
+We will publish the archive via CloudFlare on the domain `cdn.redishub.com` so that:
 - the data that you make public can be served in volume by CloudFlare
 
 This means that data accessed from some region of the globe, will be cached there for 3 minutes, and served immediately by CloudFlare.
 
 Ideally the archive should be seamless, although read-only requests might be HTTP redirected to get unmodified data:
-- `archive.redishub.com` for unmodified data
+- `cdn.redishub.com` for recently unmodified data
 - `replica.redishub.com` for recently modified data
 
 Another plan is to develop a PostgreSQL-based back-end for Redis commands, if that doesn't already exist ;)
@@ -68,29 +66,27 @@ Find me at https://twitter.com/@evanxsummers.
 
 RedisHub is my pet R&D project, to build something cool with my favourite toys, and thereby explore security, devops, microservices, monitoring, logging, metrics and messaging.
 
-RedisHub is already "mission accomplished" in the sense that it can be used as a "playground" for Redis commands, whilst also providing authenticated access to secure keyspaces for some professional use cases I have in mind. However I'm inspired to take it much further.
+RedisHub is already "mission accomplished" in the sense that it can be used as a "playground" for Redis commands, whilst also providing authenticated access to secure keyspaces for some professional use cases I have in mind. However I'm inspired to take it further.
 
 
 ##### What technology is behind a RedisHub keyspace?
 
-It is a deployment of my Node project: https://github.com/evanx/rquery. We use Nginx. 
-
-Currently it is simply a multi-tenanted Redis 2.8 instance on a Digital Ocean VM. 
+It is a deployment of my Node project: https://github.com/evanx/rquery, using Nginx and Redis 2.8.
 
 There are two production configurations: 
 - demo.redishub.com - playground with short TTLs
 - secure.redishub.com - client SSL auth, account admin, longer TTLs
 
+See: https://github.com/evanx/rquery/tree/master/config
+
 For convenience other domains are provided for the "secure" server:
 - cli.redishub.com - for command-line access, so responses are `text/plain` by default
 - json.redishub.com - response content always `application/javascript` 
 
-See: https://github.com/evanx/rquery/tree/master/config
-
 Short-term deployment plans:
 - `hot.redishub.com` VM for hot standby via a Redis replica.
 - `warm.redishub.com` for read-only authenticated access to warm data
-- `data.redishub.com` for read-only queries to "hub" warm data via CloudFlare CDN
+- `cdn.redishub.com` for read-only queries to "hub" warm data via CloudFlare CDN
 
 Note that clients should follow HTTP redirects to the above domains when reading data.
 
@@ -100,12 +96,12 @@ Medium-term deployment plans:
 
 ##### Why does the site redirect to this Github page?
 
-Currently all HTTP requests are redirected, and some HTTPS URLs, e.g. the home page and `/about.`
+Currently all HTTP requests are redirected, and also the home page and `/about.`
 
-I wanted to focus on client cert auth first, so no login/signup facility yet. 
+Incidently, I wanted to focus on client cert auth first, rather so no webpage for login/signup yet. 
 
 Having said that, you can: 
-- signup via Telegram.org to `@redishub_bot`
+- signup via Telegram.org chat to `@redishub_bot`
 - login your web browser using your self-signed client cert
 
 
@@ -119,6 +115,8 @@ curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate-pri
   bash /dev/stdin $telegramUser
 ```
 where you must substitute `$telegramUser` for yours.
+
+Soon `@redishub_bot` will assist with generating an client cert.
 
 
 ##### How do I trust your server cert?
