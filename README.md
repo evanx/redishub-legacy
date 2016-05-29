@@ -27,8 +27,12 @@ Currently, ephemeral keyspaces are created with a randomly generated name, which
 
 Private keyspaces can be created. They are secured using self-signed client certificates e.g. generated using `openssl.`
 
-Work is underway for role-based keyspace access control. Another upcoming feature is "append only" keyspaces, where new data can be added by external actors, but existing data cannot deleted or modified except by account admins.
 
+##### What upcoming features? 
+
+###### Role-based keyspace access control
+
+Admins can control which certs (or the public) can access their keyspaces, and if read-only, or add-only.
 
 ##### Why do keys expire after 10 minutes?
 
@@ -44,16 +48,11 @@ Initially, we will provide a disk-based archive limited to:
 
 Later we will support archiving lists, sets, zsets and geos.
 
-We will publish the archive via CloudFlare on the domain `cdn.redishub.com` so that:
-- the data that you make public can be served in volume by CloudFlare
-
-This means that data accessed from some region of the globe, will be cached there for 3 minutes, and served immediately by CloudFlare.
+We will publish the archive via CloudFlare on the domain `cdn.redishub.com` so that the data that you make public can be served in volume by CloudFlare. This means that data accessed from some region of the globe, will be cached there for 3 minutes, and served immediately by CloudFlare.
 
 Ideally the archive should be seamless, although read-only requests might be HTTP redirected to get unmodified data:
 - `cdn.redishub.com` for recently unmodified data
 - `replica.redishub.com` for recently modified data
-
-Another plan is to develop a PostgreSQL-based back-end for Redis commands, if that doesn't already exist ;)
 
 
 ##### Who is RedisHub?
