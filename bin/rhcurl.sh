@@ -1,4 +1,6 @@
 
+set -u -e
+
 . ~/redishub/bin/rhlogging.sh
 
 tmp=~/.bashbin/ttl/minutes/1
@@ -40,6 +42,22 @@ rhcurl() {
     return 1
   elif [ $# -eq 1 ]
   then
+    if [ "$1" = 'routes' ]
+    then
+      rhinfo "curl -s -E ~/.redishub/live/privcert.pem https://$domain/routes"
+      curl -s -E ~/.redishub/live/privcert.pem https://$domain/routes
+      return $?
+    elif [ "$1" = 'register-cert' ]
+    then
+      rhinfo "curl -s -E ~/.redishub/live/privcert.pem https://$domain/register-cert"
+      curl -s -E ~/.redishub/live/privcert.pem https://$domain/register-cert
+      return $?
+    elif [ "$1" = 'register-account' ]
+    then
+      rhinfo "curl -s -E ~/.redishub/live/privcert.pem https://$domain/register-account-telegram/$account"
+      curl -s -E ~/.redishub/live/privcert.pem https://$domain/register-account-telegram/$account
+      return $?
+    fi
     local keyspace="$1"
     rhinfo "Try the following cmds:"
     rhinfo "rh $keyspace register-keyspace"
