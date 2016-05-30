@@ -28,7 +28,7 @@ Private keyspaces can be created. They are secured using self-signed client cert
 
 #### What upcoming features? 
 
-<b>HTTP POST<b>
+<b>HTTP POST</b>
 
 <b>Role-based keyspace access control:</b>
 Admins can control which certs can access their private keyspaces, and if read-only or add-only.
