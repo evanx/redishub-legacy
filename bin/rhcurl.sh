@@ -10,12 +10,11 @@ rhhelp() {
   rhhead "RedisHub $account"
   rhinfo 'Try:'
   rhinfo 'rh <keyspace> reg'
-  rhdebug "curl -s -E ~/.redishub/live/privcert.pem https://$domain/ak/$account/:keyspace/register-keyspace"
 }
 
 kshelp() {
   local keyspace="$1"
-  rhhead "RedisHub $account"
+  rhhead "RedisHub $account $keyspace"
   rhinfo "Try the following cmds:"
   rhinfo "rh $keyspace register-keyspace"
   rhinfo "rh $keyspace <cmd> # e.g. set, get, sadd, hgetall et al"
