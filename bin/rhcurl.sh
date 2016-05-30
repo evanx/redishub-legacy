@@ -1,6 +1,8 @@
 
 set -u -e
 
+command=${1-}
+
 . ~/redishub/bin/rhlogging.sh
 
 tmp=~/.bashbin/ttl/minutes/1
@@ -44,7 +46,8 @@ rhcurl() {
   then
     if [ "$1" = 'help' ]
     then
-      rhhelp && false
+      rhhelp 
+      return 0
     elif echo "$1" | grep -q '^https'
     then
       url="$1"
