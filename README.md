@@ -1,5 +1,5 @@
 
-## redishub.com
+## RedisHub
 
 Try: https://demo.redishub.com/register-ephemeral
 
