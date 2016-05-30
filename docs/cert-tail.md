@@ -13,6 +13,7 @@ cat ~/.redishub/live/cert.pem | tail -2
 ```
 JepFtfage+nEzTOH9uNXDtXTqESABt1vBLf1+LOhjyzY1EI2M7QaVBU=
 -----END CERTIFICATE-----
+```
 ```shell
 cat ~/.redishub/live/cert.pem | tail -2 | grep '^\w' 
 ```
