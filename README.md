@@ -28,13 +28,9 @@ Private keyspaces can be created. They are secured using self-signed client cert
 
 #### What upcoming features? 
 
-<b>HTTP POST</b>
-
-<b>Role-based keyspace access control:</b>
-Admins can control which certs can access their private keyspaces, and if read-only or add-only.
-
-<b>Export and import to JSON:</b>
-Entire keyspaces can be exported as a JSON file, or imported or created from such.
+- HTTP POST
+- Role-based keyspace access control: Admins can control which certs can access their private keyspaces, and if read-only or add-only.
+- Export and import to JSON: Entire keyspaces can be exported as a JSON file, or imported or created from such.
 
 #### Why do keys expire after 10 minutes?
 
