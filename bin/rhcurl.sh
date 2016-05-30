@@ -6,11 +6,27 @@ set -u -e
 tmp=~/.bashbin/ttl/minutes/1
 [ -d $tmp ] || mkdir -p $tmp
 
+rhhelp() {
+  rhhead "RedisHub $account"
+  rhinfo 'Try:'
+  rhinfo 'rh <keyspace> reg'
+  rhdebug "curl -s -E ~/.redishub/live/privcert.pem https://$domain/ak/$account/:keyspace/register-keyspace"
+}
+
+kshelp() {
+  local keyspace="$1"
+  rhhead "RedisHub $account"
+  rhinfo "Try the following cmds:"
+  rhinfo "rh $keyspace register-keyspace"
+  rhinfo "rh $keyspace <cmd> # e.g. set, get, sadd, hgetall et al"
+  rhdebug "curl -s -E ~/.redishub/live/privcert.pem https://$domain/ak/$account/$keyspace"
+}
+
 rhcurl() {
   openssl x509 -text -in ~/.redishub/live/privcert.pem > $tmp.certInfo
   CN=`cat "$tmp.certInfo" | grep 'CN=' | sed -n 's/.*CN=\(\S*\),.*/\1/p' | head -1`
   OU=`cat "$tmp.certInfo" | grep 'OU=' | sed -n 's/.*OU=\(\S*\).*/\1/p' | head -1`
-  local account=`cat ~/.redishub/live/account`
+  account=`cat ~/.redishub/live/account`
   if ! echo $OU | grep -q "%${account}@"
   then
     echo "ERROR $OU does not match Telegram user $account"
@@ -19,10 +35,13 @@ rhcurl() {
   local url=''
   if [ $# -eq 1 ]
   then
-    if echo "$1" | grep '^https'
+    if [ "$1" = 'help' ]
+    then
+      rhhelp && false
+    elif echo "$1" | grep -q '^https'
     then
       url="$1"
-    elif echo "$1" | grep '^[a-z]*\.redishub.com'
+    elif echo "$1" | grep -q '^[a-z]*\.redishub.com'
     then
       url="https://$1"
     fi
@@ -37,8 +56,7 @@ rhcurl() {
   rhdebug domain=$domain account=$account
   if [ $# -eq 0 ]
   then
-    rhinfo "Try: rh <keyspace> reg"
-    rhdebug "curl -s -E ~/.redishub/live/privcert.pem https://$domain/ak/$account/:keyspace/register-keyspace"
+    rhhelp 
     return 1
   elif [ $# -eq 1 ]
   then
@@ -57,20 +75,21 @@ rhcurl() {
       rhinfo "curl -s -E ~/.redishub/live/privcert.pem https://$domain/register-account-telegram/$account"
       curl -s -E ~/.redishub/live/privcert.pem https://$domain/register-account-telegram/$account
       return $?
+    else
+      kshelp $1
+      return 1
     fi
-    local keyspace="$1"
-    rhinfo "Try the following cmds:"
-    rhinfo "rh $keyspace register-keyspace"
-    rhinfo "rh $keyspace keys # scan keys"
-    rhinfo "rh $keyspace <cmd> # e.g. set, get, sadd, hgetall et al"
-    rhdebug "curl -s -E ~/.redishub/live/privcert.pem https://$domain/ak/$account/$keyspace"
-    return 1
   fi
   local keyspace="$1"
   shift
+  if [ $# -eq 0 ]
+  then
+    rhhelp
+    return 1
+  fi
   local cmd="$1"
   shift
-  if echo "$cmd" | grep '^reg$\|^register$\|^register-keyspace$'
+  if echo "$cmd" | grep -q '^reg$\|^register$\|^register-keyspace$'
   then
     cmd='register-keyspace'
   fi

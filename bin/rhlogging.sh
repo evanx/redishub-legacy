@@ -30,6 +30,15 @@ rhdebug() {
   fi
 }
 
+rhhead() {
+  if [ -t 1 ]
+  then
+    >&2 echo -e "\e[1m\e[36m${@}\e[39m\e[0m"
+  else
+    >&2 echo "INFO ${@}"
+  fi
+}
+
 rhinfo() {
   if [ -t 1 ]
   then
