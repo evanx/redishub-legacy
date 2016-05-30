@@ -44,8 +44,8 @@ Later we will support archiving hashes, lists, sets, zsets and geos.
 We will publish the archive via CloudFlare on the domain `cdn.redishub.com` so that the data that you make public can be served in volume by CloudFlare. This means that data accessed from some region of the globe, will be cached there for 3 minutes, and served immediately by CloudFlare.
 
 Ideally the archive should be seamless, although read-only requests might be HTTP redirected to get unmodified data:
-- `cdn.redishub.com` for recently unmodified data
-- `replica.redishub.com` for recently modified data
+- `cdn.redishub.com` for data not modified for some time
+- `replica.redishub.com` for data that has been replicated since it was last modified
 
 
 #### Who is RedisHub?
