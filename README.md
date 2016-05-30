@@ -26,15 +26,9 @@ Currently, ephemeral keyspaces are created with a randomly generated name, which
 Private keyspaces can be created. They are secured using self-signed client certificates e.g. generated using `openssl.`
 
 
-#### What upcoming features? 
-
-HTTP POST
-
-Role-based keyspace access control: Admins can control which certs can access their private keyspaces, and if read-only or add-only.
-
-Export and import to JSON: Entire keyspaces can be exported as a JSON file, or imported or created from such.
-
 #### Why do keys expire after 10 minutes?
+
+Ephemeral (unauthenticated) keyspaces expire in 10 minutes.
 
 Authenticated accounts have a longer default expiry, currently 10 days.
 
@@ -207,6 +201,13 @@ Also I have a new Ubuntu phone, which has Telegram, but not others etc.
 Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. 
 "Then we'll be millionares!" as Homer says ;)
 
+#### What upcoming features? 
+
+HTTP POST
+
+Role-based keyspace access control: Admins can control which certs can access their private keyspaces, and if read-only or add-only.
+
+Export and import to JSON: Entire keyspaces can be exported as a JSON file, or imported or created from such.
 
 ### Goals
 
