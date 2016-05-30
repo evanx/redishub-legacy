@@ -27,35 +27,6 @@ Currently, ephemeral keyspaces are created with a randomly generated name, which
 
 Private keyspaces can be created. They are secured using self-signed client certificates e.g. generated using `openssl.`
 
-#### What are the limits? 
-
-The following account types:
-- hub - unathenticated public/secret ephemeral keyspaces
-- secure - client cert authenticated keyspaces
-- founder - has made a virtual currency transfer to a "RedisHub Founders" wallet
-
-These different account types have different service usage limits, e.g. in terms of keyspace TTLs.
-
-#### What is the "founders" virtual currency address
-
-It is a virtual currency account where senders automatically become "founders" who together own RedisHub.
-
-Their shareholding will be determined by computational analysis of the time series of:
-- your actual usage costs
-- your transfers 
-
-I will be the original founder in the Bitcoin wallet and Ethereum wallet. The algorithm should be such that:
-- the second founder initially owns 49%
-- the 10th founder initially owns 5%
-- the 50th founder initially owns 1%
-
-#### Why the "Founders" ownship
-
-- it's a low cost transparent way to manage costs and payments
-- it's an interesting experiment 
-- early adopters are critical to success, so reward that
-- the real value of any business is its customers
-- the idea of loyal customers being owners appeals to me
 
 #### What upcoming features? 
 
@@ -149,7 +120,7 @@ curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate-pri
 ```
 where you must substitute `$telegramUser` for yours.
 
-Soon `@redishub_bot` will assist with generating an client cert.
+Later `@redishub_bot` will assist with generating an client cert using `openssl.`
 
 
 #### How do I trust your server cert?
