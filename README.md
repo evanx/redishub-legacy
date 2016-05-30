@@ -50,7 +50,7 @@ Ideally the archive should be seamless, although read-only requests might be HTT
 
 #### Who is RedisHub?
 
-I'm a web developer based in Cape Town, working on content sites for a news publisher, using Nginx, Node, React and Redis. In my spare time, I work on my Github projects. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer. 
+I'm a web developer based in Cape Town, working on content sites for a news publisher, using Nginx, Node, React and Redis. In my spare time, I work on my Github projects. Previously, I've been a Java enterprise developer, PostgreSQL DBA and Linux engineer.
 
 Find me at https://twitter.com/@evanxsummers.
 
@@ -64,7 +64,7 @@ RedisHub is already "mission accomplished" in the sense that it can be used as a
 
 It is a deployment of my Node project: https://github.com/evanx/rquery, using Nginx and Redis 2.8.
 
-There are two production configurations: 
+There are two production configurations:
 - demo.redishub.com - playground with short TTLs
 - secure.redishub.com - client SSL auth, account admin, longer TTLs
 
@@ -72,7 +72,7 @@ See: https://github.com/evanx/rquery/tree/master/config
 
 For convenience other domains are provided for the "secure" server:
 - cli.redishub.com - for command-line access, so responses are `text/plain` by default
-- json.redishub.com - response content always `application/javascript` 
+- json.redishub.com - response content always `application/javascript`
 
 Short-term deployment plans:
 - `hot.redishub.com` VM for hot standby via a Redis replica.
@@ -82,16 +82,16 @@ Short-term deployment plans:
 Note that clients should follow HTTP redirects to the above domains when reading data.
 
 Medium-term deployment plans:
-- a Redis Cluster on load-balanced dedicated servers with 64GB each. 
+- a Redis Cluster on load-balanced dedicated servers with 64GB each.
 
 
 #### Why does the site redirect to this Github page?
 
 Currently all HTTP requests are redirected, and also some HTTPS ones, namely the home page and `/about.`
 
-I wished to focus on client cert auth first, so no webpage for login/signup yet. 
+I wished to focus on client cert auth first, so no webpage for login/signup yet.
 
-Having said that, you can: 
+Having said that, you can:
 - signup via Telegram.org chat to `@redishub_bot`
 - login your web browser using your self-signed client cert
 
@@ -102,7 +102,7 @@ You specify the authoritative Telegram.org username for the RedisHub account.
 
 You can try the following script:
 ```shell
-curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate-privcert.sh | 
+curl -s https://raw.githubusercontent.com/evanx/redishub/master/bin/generate-privcert.sh |
   bash /dev/stdin $telegramUser
 ```
 where you must substitute `$telegramUser` for yours.
@@ -113,7 +113,7 @@ Later `@redishub_bot` will assist with generating an client cert using `openssl.
 #### How do I trust your server cert?
 
 Our domains are secured via Let's Encrypt:
-```shell 
+```shell
 echo -n | openssl s_client \
   -connect cli.redishub.com:443 2>/dev/null | grep '^Cert' -A2
 ```
@@ -123,7 +123,7 @@ Certificate chain
    i:/C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
 ```
 
-Some systems have an outdated "CA certs" file which does not include Let's Encrypt cert. 
+Some systems have an outdated "CA certs" file which does not include Let's Encrypt cert.
 
 We can support only clients that trust Let's Encrypt, explicity if not by default:
 ```shell
@@ -156,7 +156,7 @@ It addresses some use cases where an online serverless storage/messaging service
 
 #### Will you ever offer a hosted Redis service?
 
-There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache, RedisLabs, OpenRedis and RedisGreen. 
+There are other PaaS vendors that offer hosted Redis at scale, e.g. AWS ElastiCache, RedisLabs, OpenRedis and RedisGreen.
 
 I wish to experiment with orchestrating Redis instances, clusters and replicas, to automate RedisHub itself. However I'm more interested in other things e.g. auto-archival and supporting serverless lamdbas, than Redis hosting per se.
 
@@ -198,10 +198,10 @@ Currently, your Telegram username is used for your private RedisHub account name
 
 I've always liked the sound of Telegram, e.g. their security and openness.
 Also I have a new Ubuntu phone, which has Telegram, but not others etc.
-Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes. 
+Last but not least, I want to enter the Bot competion and maybe get lucky and win one of those prizes.
 "Then we'll be millionares!" as Homer says ;)
 
-#### What upcoming features? 
+#### What upcoming features?
 
 HTTP POST
 
