@@ -3,11 +3,9 @@
 
 Try: https://demo.redishub.com/register-ephemeral
 
-Note that this endpoint returns JSON, so you'll want a JSON viewer extension installed in your browser otherwise it's pretty unusable.
-
 Documentation: https://github.com/evanx/rquery
 
-Note that (insecure) HTTP access to all RedisHub domains, and some other URLs, are redirected to this info page.
+Note that (insecure) HTTP access to all RedisHub domains, and also some other HTTPS URLs e.g. home page and `/about,` are redirected to this info page.
 
 
 ### Status
