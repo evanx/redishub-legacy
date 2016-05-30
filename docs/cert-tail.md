@@ -6,7 +6,7 @@ cat ~/.redishub/live/cert.pem | tail -2 | grep '^\w' | sed 's/=*$//' | tail -c-1
 ```
 where we exclude any '=' Base64 padding at the end of the last line of the PEM.
 
-#### Explanation 
+#### Step by step 
 
 Get the last two lines of the PEM:
 ```shell
