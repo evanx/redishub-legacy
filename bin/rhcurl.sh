@@ -6,6 +6,14 @@ set -u -e
 tmp=~/.bashbin/ttl/minutes/1
 [ -d $tmp ] || mkdir -p $tmp
 
+if [ ! -r ~/.redishub/live/account ] 
+then
+  rherror 'Missing file: ~/.redishub/live/account'
+  rherror 'This file must contain your RedisHub/Telegram account name'
+  rherror 'Try @redishub_bot /signup'
+  exit 3
+fi 
+
 rhhelp() {
   rhhead "RedisHub $account"
   rhinfo 'Try:'
