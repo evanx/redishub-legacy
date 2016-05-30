@@ -49,10 +49,9 @@ The short-term plan is to enable the following features:
 - authenticated clients can persist keys
 
 Initially, we will provide a disk-based archive limited to:
-- strings i.e. values of keys
-- hashes keys 
+- string value of keys
 
-Later we will support archiving lists, sets, zsets and geos.
+Later we will support archiving hashes, lists, sets, zsets and geos.
 
 We will publish the archive via CloudFlare on the domain `cdn.redishub.com` so that the data that you make public can be served in volume by CloudFlare. This means that data accessed from some region of the globe, will be cached there for 3 minutes, and served immediately by CloudFlare.
 
