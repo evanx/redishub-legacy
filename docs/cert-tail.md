@@ -6,11 +6,12 @@ cat ~/.redishub/live/cert.pem | tail -2 | grep '^\w' | sed 's/=*$//' | tail -c-1
 ```
 where we exclude any '=' Base64 padding at the end of the last line of the PEM.
 
-For example:
+#### Explanation 
+
+Get the last two lines of the PEM:
 ```shell
 cat ~/.redishub/live/cert.pem | tail -2
 ```
-for the last two lines:
 ```
 JepFtfage+nEzTOH9uNXDtXTqESABt1vBLf1+LOhjyzY1EI2M7QaVBU=
 -----END CERTIFICATE-----
