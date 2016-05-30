@@ -34,7 +34,7 @@ Private keyspaces can be created. They are secured using self-signed client cert
 
 ##### Role-based keyspace access control
 
-Admins can control which certs (or the public) can access their keyspaces, and if read-only, or add-only.
+Admins can control which certs can access their private keyspaces, and if read-only or add-only.
 
 ##### Export and import to JSON
 
