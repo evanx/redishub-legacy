@@ -4,6 +4,7 @@
 ```shell
 cat ~/.redishub/live/cert.pem | tail -2 | grep '^\w' | sed 's/=*$//' | tail -c-12
 ```
+where we exclude any `=` Base64 padding at the end of the last line of the PEM.
 
 For example:
 ```
