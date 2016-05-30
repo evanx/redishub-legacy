@@ -1,6 +1,7 @@
 
 ### How to get tail characters of a cert PEM
 
+Try this command:
 ```shell
 cat ~/.redishub/live/cert.pem | tail -2 | grep '^\w' | sed 's/=*$//' | tail -c-12
 ```
