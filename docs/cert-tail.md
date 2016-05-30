@@ -18,13 +18,13 @@ cat ~/.redishub/live/cert.pem | tail -2 | grep '^\w'
 ```
 ```
 JepFtfage+nEzTOH9uNXDtXTqESABt1vBLf1+LOhjyzY1EI2M7QaVBU=
-
+```
 ```shell
 cat ~/.redishub/live/cert.pem | tail -2 | grep '^\w' | sed 's/=*$//' 
 ```
 ```
 JepFtfage+nEzTOH9uNXDtXTqESABt1vBLf1+LOhjyzY1EI2M7QaVBU
-  
+``` 
 ```shell
 cat ~/.redishub/live/cert.pem | tail -2 | grep '^\w' | sed 's/=*$//' | tail -c-12
 ```
